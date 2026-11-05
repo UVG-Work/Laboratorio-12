@@ -1,0 +1,9 @@
+serie_id,serie_lab10,serie,tipo,orden,tiene_modelos,aviso
+total,Total de viajeros,Total,Total,0,True,Desde 2023 excluye a residentes guatemaltecos que regresan; ver serie No residentes.
+es,País: El Salvador,El Salvador,País,1,True,
+gt,País: Guatemala,Guatemala (residentes),País,2,True,Desde 2023 no se registra a residentes guatemaltecos que regresan: la serie vale 0 y no es turismo.
+us,País: Estados Unidos de América,Estados Unidos,País,3,True,
+aerea,Vía: Aérea,Aérea,Vía,4,True,
+terrestre,Vía: Terrestre,Terrestre,Vía,5,True,
+maritima,Vía: Marítima,Marítima,Vía,6,True,La cobertura de cruceristas cambió en 2023: interpretar con cautela.
+nores,No residentes (total − Guatemala),No residentes,Derivada,7,False,Serie derivada (total − Guatemala) para comparar con el total; no tiene modelos.

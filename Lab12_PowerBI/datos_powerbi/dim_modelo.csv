@@ -1,0 +1,19 @@
+modelo_id,modelo,modelo_nombre,familia,descripcion,principal
+1,Holt-Winters,Holt-Winters,Suavizado,Promedio ponderado que sigue la tendencia y el calendario.,True
+2,"SARIMA(0,0,1)(0,0,1,12)","SARIMA (0,0,1)(0,0,1)",SARIMA,Modelo estadístico de tendencia y calendario; su orden cambia entre pruebas y series.,False
+3,"SARIMA(0,0,1)(0,1,1,12)","SARIMA (0,0,1)(0,1,1)",SARIMA,Modelo estadístico de tendencia y calendario; su orden cambia entre pruebas y series.,False
+4,"SARIMA(0,1,1)(0,0,1,12)","SARIMA (0,1,1)(0,0,1)",SARIMA,Modelo estadístico de tendencia y calendario; su orden cambia entre pruebas y series.,False
+5,"SARIMA(0,1,1)(0,1,1,12)","SARIMA (0,1,1)(0,1,1)",SARIMA,Modelo estadístico de tendencia y calendario; su orden cambia entre pruebas y series.,False
+6,"SARIMA(0,1,1)(0,1,1,12) (aerolínea)","SARIMA (0,1,1)(0,1,1) (aerolínea)",SARIMA,Modelo estadístico de tendencia y calendario; su orden cambia entre pruebas y series.,False
+7,"SARIMA(1,0,0)(1,0,0,12)","SARIMA (1,0,0)(1,0,0)",SARIMA,Modelo estadístico de tendencia y calendario; su orden cambia entre pruebas y series.,False
+8,"SARIMA(1,0,1)(1,0,1,12)","SARIMA (1,0,1)(1,0,1)",SARIMA,Modelo estadístico de tendencia y calendario; su orden cambia entre pruebas y series.,False
+9,"SARIMA(1,0,1)(1,1,1,12)","SARIMA (1,0,1)(1,1,1)",SARIMA,Modelo estadístico de tendencia y calendario; su orden cambia entre pruebas y series.,False
+10,"SARIMA(1,1,0)(1,0,0,12)","SARIMA (1,1,0)(1,0,0)",SARIMA,Modelo estadístico de tendencia y calendario; su orden cambia entre pruebas y series.,False
+11,"SARIMA(1,1,1)(0,1,1,12)","SARIMA (1,1,1)(0,1,1)",SARIMA,Modelo estadístico de tendencia y calendario; su orden cambia entre pruebas y series.,False
+12,"SARIMA(1,1,1)(1,0,1,12)","SARIMA (1,1,1)(1,0,1)",SARIMA,Modelo estadístico de tendencia y calendario; su orden cambia entre pruebas y series.,False
+13,"SARIMA(1,1,1)(1,1,1,12)","SARIMA (1,1,1)(1,1,1)",SARIMA,Modelo estadístico de tendencia y calendario; su orden cambia entre pruebas y series.,False
+14,"SARIMA(2,0,0)(1,1,0,12)","SARIMA (2,0,0)(1,1,0)",SARIMA,Modelo estadístico de tendencia y calendario; su orden cambia entre pruebas y series.,False
+15,"SARIMA(2,1,0)(1,0,0,12)","SARIMA (2,1,0)(1,0,0)",SARIMA,Modelo estadístico de tendencia y calendario; su orden cambia entre pruebas y series.,False
+16,"SARIMA(2,1,0)(1,1,0,12)","SARIMA (2,1,0)(1,1,0)",SARIMA,Modelo estadístico de tendencia y calendario; su orden cambia entre pruebas y series.,False
+17,Seasonal naive,Ingenuo estacional,Referencia,Repite lo que ocurrió en el mismo mes del año anterior.,True
+18,Suav. exponencial simple,Suavizado exponencial,Suavizado,Promedio que da más peso a lo reciente; ignora el calendario.,True

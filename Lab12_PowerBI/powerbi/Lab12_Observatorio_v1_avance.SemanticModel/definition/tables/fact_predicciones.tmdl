@@ -1,0 +1,82 @@
+table fact_predicciones
+	lineageTag: 9149e3a3-3098-4557-aa8d-c4ada1a2bd55
+
+	column serie_id
+		dataType: string
+		lineageTag: 6c3dc770-7589-4e76-9d91-2c5883a7392f
+		summarizeBy: none
+		sourceColumn: serie_id
+
+	column prueba
+		dataType: string
+		lineageTag: 96782e07-9c49-41cb-a66c-741690f682de
+		summarizeBy: none
+		sourceColumn: prueba
+
+	column modelo_id
+		dataType: int64
+		lineageTag: 156cd6ba-7d7c-47c3-98d1-576b24d48673
+		summarizeBy: none
+		sourceColumn: modelo_id
+
+	column fecha
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 57085e66-fc98-4900-883e-37a417ff30ab
+		summarizeBy: none
+		sourceColumn: fecha
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column real
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 8d1af402-0397-404d-b1c1-14b2e616e751
+		summarizeBy: sum
+		sourceColumn: real
+
+	column pronostico
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 943aaed9-66fc-44e1-b4e3-340e43c03866
+		summarizeBy: sum
+		sourceColumn: pronostico
+
+	column error
+		dataType: double
+		formatString: #,0.00
+		lineageTag: db0f2854-493c-49d5-895d-312581e43d5f
+		summarizeBy: sum
+		sourceColumn: error
+
+	column error_abs
+		dataType: double
+		formatString: #,0.00
+		lineageTag: beecb2b6-318c-460d-8633-0fb16b4af5ea
+		summarizeBy: sum
+		sourceColumn: error_abs
+
+	column error_cuad
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 189f6e8e-7cc2-4e54-960e-cb93d3a6cb99
+		summarizeBy: sum
+		sourceColumn: error_cuad
+
+	column error_pct_abs
+		dataType: double
+		formatString: #,0.00
+		lineageTag: 92312c09-13fe-4c9d-a325-9eb67432f680
+		summarizeBy: sum
+		sourceColumn: error_pct_abs
+
+	partition fact_predicciones = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "fact_predicciones.csv"), [Delimiter = ",", Columns = 10, Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Tipos = Table.TransformColumnTypes(Encabezados, {{"serie_id", type text}, {"prueba", type text}, {"modelo_id", Int64.Type}, {"fecha", type date}, {"real", type number}, {"pronostico", type number}, {"error", type number}, {"error_abs", type number}, {"error_cuad", type number}, {"error_pct_abs", type number}}, "en-US")
+				in
+				    Tipos
+

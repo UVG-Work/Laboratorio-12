@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Lab12_Observatorio_v1_avance"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "fe5ed0f2-481d-44ff-b1eb-c4fcbf35e983"
+  }
+}

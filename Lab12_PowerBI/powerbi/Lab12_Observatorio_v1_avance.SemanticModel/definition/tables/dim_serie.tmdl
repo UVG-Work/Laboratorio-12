@@ -1,0 +1,70 @@
+table dim_serie
+	lineageTag: 8ce8ef23-6dd1-4ff2-b2a5-5646cac40aa8
+
+	measure Viajeros =
+			VAR serie_sel =
+			    IF ( HASONEVALUE ( dim_serie[serie_id] ), SELECTEDVALUE ( dim_serie[serie_id] ), "total" )
+			RETURN
+			    CALCULATE ( SUM ( fact_observado[viajeros] ), dim_serie[serie_id] = serie_sel )
+		formatString: #,0
+		lineageTag: cd496e0c-6c83-4bba-84b7-17bf9e1f50b7
+
+	measure 'Mensaje sin datos' =
+			IF ( ISBLANK ( [Viajeros] ),
+			     "No hay registros para esta selección. Revise la serie o el rango de años.",
+			     BLANK () )
+		lineageTag: 5adfe536-a30b-455a-b305-094e4cef9ad8
+
+	column serie_id
+		dataType: string
+		lineageTag: 81d5ab78-a79d-4086-90e8-26f8e92ec3b2
+		summarizeBy: none
+		sourceColumn: serie_id
+
+	column serie_lab10
+		dataType: string
+		lineageTag: bf573691-ac2d-42da-ba01-5d5e9ecafd40
+		summarizeBy: none
+		sourceColumn: serie_lab10
+
+	column serie
+		dataType: string
+		lineageTag: 234a47b0-b7fa-4732-b760-75db5bff3c9c
+		summarizeBy: none
+		sourceColumn: serie
+		sortByColumn: orden
+
+	column tipo
+		dataType: string
+		lineageTag: f878e7a5-7e97-4221-86dc-3fee5a24ca32
+		summarizeBy: none
+		sourceColumn: tipo
+
+	column orden
+		dataType: int64
+		lineageTag: 42fe6044-bacf-48b2-922d-da13929e738c
+		summarizeBy: none
+		sourceColumn: orden
+
+	column tiene_modelos
+		dataType: boolean
+		lineageTag: c65c1b0c-b35d-42d0-b9f3-29e861229026
+		summarizeBy: none
+		sourceColumn: tiene_modelos
+
+	column aviso
+		dataType: string
+		lineageTag: 15b2fb14-4783-423f-aabd-3252808c2cee
+		summarizeBy: none
+		sourceColumn: aviso
+
+	partition dim_serie = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "dim_serie.csv"), [Delimiter = ",", Columns = 7, Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Tipos = Table.TransformColumnTypes(Encabezados, {{"serie_id", type text}, {"serie_lab10", type text}, {"serie", type text}, {"tipo", type text}, {"orden", Int64.Type}, {"tiene_modelos", type logical}, {"aviso", type text}}, "en-US")
+				in
+				    Tipos
+

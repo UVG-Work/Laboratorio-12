@@ -1,0 +1,5 @@
+expression RutaDatos = "C:\Users\lordk\Downloads\Lab12_PowerBI\Lab12_PowerBI\datos_powerbi\" meta [IsParameterQuery = true, Type = "Text", IsParameterQueryRequired = true]
+	lineageTag: f57a53f6-62a8-41fd-98be-c85ed5dfcf31
+
+	annotation PBI_ResultType = Text
+

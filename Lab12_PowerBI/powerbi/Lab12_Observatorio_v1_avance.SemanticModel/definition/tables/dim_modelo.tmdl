@@ -1,0 +1,49 @@
+table dim_modelo
+	lineageTag: 444e642e-b67d-47bf-a9cc-bef59b2f792d
+
+	column modelo_id
+		dataType: int64
+		lineageTag: eaddd0d5-054f-4a21-9005-22333399c9ea
+		summarizeBy: none
+		sourceColumn: modelo_id
+
+	column modelo
+		dataType: string
+		lineageTag: b04a5b15-b9cb-4669-a620-cc176aec7c48
+		summarizeBy: none
+		sourceColumn: modelo
+
+	column modelo_nombre
+		dataType: string
+		lineageTag: 74114804-b790-4866-8b71-e09eae44b01b
+		summarizeBy: none
+		sourceColumn: modelo_nombre
+
+	column familia
+		dataType: string
+		lineageTag: b9685586-d156-48d4-b4b4-60deb4786547
+		summarizeBy: none
+		sourceColumn: familia
+
+	column descripcion
+		dataType: string
+		lineageTag: 1aa20219-c3f4-49c2-ad5a-3791bce25c9a
+		summarizeBy: none
+		sourceColumn: descripcion
+
+	column principal
+		dataType: boolean
+		lineageTag: 885c856f-273d-420c-a840-02001fe07d2a
+		summarizeBy: none
+		sourceColumn: principal
+
+	partition dim_modelo = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "dim_modelo.csv"), [Delimiter = ",", Columns = 6, Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Tipos = Table.TransformColumnTypes(Encabezados, {{"modelo_id", Int64.Type}, {"modelo", type text}, {"modelo_nombre", type text}, {"familia", type text}, {"descripcion", type text}, {"principal", type logical}}, "en-US")
+				in
+				    Tipos
+

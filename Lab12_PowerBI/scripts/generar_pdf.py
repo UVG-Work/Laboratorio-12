@@ -81,10 +81,16 @@ def main():
             y -= lineheight
         y -= extra
     pdf.savefig(fig); plt.close(fig)
-    for filename, caption in [
-        ("01_vista_inicial.png", "Power BI: vista inicial del avance"),
-        ("02_clic_Estados_Unidos_en_V2.png", "Power BI: clic en Estados Unidos (avance)"),
-        ("03_clic_2020_en_V3.png", "Power BI: clic en 2020 (avance)")]:
+    avance = "Evidencia del avance (5 nov): V1-V3 y su filtrado cruzado."
+    final = "Versión final abierta en Power BI Desktop 2.159.1231.0 (8 nov), vista inicial de la página."
+    for filename, caption, note in [
+        ("01_vista_inicial.png", "Captura 01 · Power BI: vista inicial del avance", avance),
+        ("02_clic_Estados_Unidos_en_V2.png", "Captura 02 · Clic en Estados Unidos en V2 (avance)", avance),
+        ("03_clic_2020_en_V3.png", "Captura 03 · Clic en 2020 en V3; V1 a nivel de mes (avance)", avance),
+        ("10_final_p1_panorama.png", "Captura 10 · Final: 1 · Panorama (V1-V3)", final),
+        ("11_final_p2_detalle_2025.png", "Captura 11 · Final: 2 · Detalle mensual (V4)", final),
+        ("12_final_p3_calendario_mercados.png", "Captura 12 · Final: 3 · Calendario y mercados (V5-V7)", final),
+        ("13_final_p4_pronosticos.png", "Captura 13 · Final: 4 · Pronósticos (V8, V8b, V9, V10)", final)]:
         path = DOCS / "capturas" / filename
         if path.exists():
             fig, ax = plt.subplots(figsize=(8.27, 11.69), dpi=150)
@@ -92,7 +98,7 @@ def main():
             ax.text(.06, .96, caption, transform=ax.transAxes, fontsize=12, color="#1F4E79", fontweight="bold", va="top")
             panel = fig.add_axes([.05, .22, .90, .62])
             panel.imshow(imread(path)); panel.axis("off")
-            ax.text(.06, .12, "Evidencia del avance; no documenta las páginas añadidas.",
+            ax.text(.06, .12, note,
                     transform=ax.transAxes, fontsize=8, color="#607080")
             pdf.savefig(fig); plt.close(fig)
     pdf.close()

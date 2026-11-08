@@ -4,26 +4,28 @@ Segunda versión del observatorio del Laboratorio 10, basada en los mismos regis
 
 ## Estado de la entrega (8 de noviembre de 2026)
 
-El proyecto editable `powerbi/Lab12_Observatorio_v2_final.pbip` contiene cuatro páginas y once gráficos (V1-V10 más V8b), junto con los siete CSV, relaciones y medidas. Los gráficos V1-V3 y el archivo `Lab12_Observatorio_v1_avance.pbix` proceden del avance. **El .pbix incluido sigue siendo el avance**: en este entorno no está instalado Power BI Desktop y no se ha podido abrir, refrescar, verificar visualmente ni exportar la versión final a .pbix. Para obtenerlo, abra el .pbip nuevo en Power BI Desktop, actualice los datos y guárdelo como `Lab12_Observatorio_v2_final.pbix`.
+| Versión | Archivo | Contenido |
+|---|---|---|
+| v1 · avance (5 nov) | `powerbi/Lab12_Observatorio_v1_avance.pbix` (+ `.pbip`) | V1-V3 enlazadas |
+| **v2 · final (8 nov)** | **`powerbi/Lab12_Observatorio_v2_final.pbix`** (+ `.pbip` editable en texto) | 4 páginas, 11 gráficos (V1-V10 más V8b), navegación, limpiar filtros y mensajes |
 
-Las cifras y claves de los CSV sí se validaron con `python scripts/validar_datos.py`. No se inventaron tiempos de uso, clics o capturas de pruebas que no se ejecutaron.
+El informe final se abrió, actualizó y revisó en Power BI Desktop **2.159.1231.0 (octubre de 2026, Microsoft Store)** el 8 de noviembre de 2026; las capturas `docs/capturas/10_` a `13_` son de esa sesión. Las cifras y claves de los CSV se validaron con `python scripts/validar_datos.py`. No se inventaron tiempos de uso ni clics de pruebas que no se ejecutaron.
 
 ## Carpetas
 
 | Carpeta | Contenido |
 |---|---|
 | `datos_powerbi/` | Siete CSV de dimensiones, observaciones, predicciones y métricas. |
-| `powerbi/` | Proyecto PBIP editable, tema y .pbix del avance. |
-| `docs/` | Documento de diseño y comparación; capturas existentes del avance. |
+| `powerbi/` | Informes .pbix (avance y final), sus proyectos .pbip editables y el tema. |
+| `docs/` | Documento de diseño y comparación (.md y .pdf), registros de pruebas y tiempo, bosquejos y capturas del avance y de la versión final. |
 | `scripts/` | Generación del proyecto y validación de datos. |
 
 ## Abrir y actualizar
 
-1. En Windows, use Power BI Desktop. El avance declaró la versión **2.159.1231.0 (octubre de 2026)**; la versión de este proyecto final no pudo comprobarse localmente.
-2. Abra `powerbi/Lab12_Observatorio_v2_final.pbip` (el proyecto de texto, no el .pbix del avance).
-3. En **Transformar datos → Editar parámetros**, cambie `RutaDatos` a la ruta absoluta de `datos_powerbi` en su equipo, **con barra final**. El valor guardado corresponde a la ruta solicitada en este equipo.
-4. Pulse **Inicio → Actualizar**. Verifique que no haya errores de carga ni campos inválidos.
-5. Guarde como `powerbi/Lab12_Observatorio_v2_final.pbix`. Compruebe la interacción y las vistas en Desktop antes de entregar.
+1. En Windows, instale Power BI Desktop (gratuito; se usó la versión **2.159.1231.0**).
+2. Abra `powerbi/Lab12_Observatorio_v2_final.pbix`. El archivo ya contiene los datos importados, así que se puede revisar sin actualizar.
+3. Para volver a cargar los CSV: **Transformar datos → Editar parámetros → `RutaDatos`** y escriba la ruta absoluta de la carpeta `datos_powerbi` en su equipo, **con barra final** (por ejemplo `C:\repos\Laboratorio-12\Lab12_PowerBI\datos_powerbi\`). Luego pulse **Inicio → Actualizar**.
+4. Alternativa editable: abrir `powerbi/Lab12_Observatorio_v2_final.pbip` (mismo informe en texto, útil para revisar cambios en Git); requiere el mismo paso 3 y **Actualizar**.
 
 ### Modelo de datos
 
@@ -33,26 +35,26 @@ La validación comprueba unicidad de claves, referencias a dimensiones, igualdad
 
 ## Páginas y uso
 
-1. **Panorama**: V1 línea temporal con jerarquía Año → Trimestre → Mes; V2 mercados y vías; V3 total anual. Seleccione una barra en V2 o una columna en V3 para filtrar los demás gráficos. Haga clic otra vez en la marca para quitar la selección.
-2. **Detalle mensual**: elija año y serie en los segmentadores para ver V4; use la pestaña Panorama para regresar. Abra el icono de borrador del segmentador para limpiar su filtro.
-3. **Calendario y mercados**: V5 secuencia mensual, V6 perfil estacional y V7 recuperación de 2025 respecto de 2019. V7 usa años fijos e ignora el segmentador de año por diseño.
-4. **Pronósticos**: V8 y V8b muestran MAPE y MAE de los tres modelos; V9 traza observaciones y pronósticos; V10 el error del Ingenuo estacional. Filtre por serie y prueba. Sin selección, las medidas usan Total y post-pandemia como referencia. MAPE compara **solo una serie y un conjunto de evaluación a la vez**.
+Cada página tiene arriba cuatro botones para cambiar de página y el botón **↺ Limpiar filtros** (borra todos los segmentadores). En Power BI Desktop los botones se activan con **Ctrl + clic**; en la vista de lectura, con un clic.
 
-Las pestañas inferiores permiten elegir vista. Para restablecer, borre los segmentadores y selecciones de gráficos; el comando nativo **Restablecer valores predeterminados** puede usarse si está disponible en la versión de Desktop. Se debe validar la visibilidad de controles y la ausencia de datos en Desktop.
+1. **Panorama**: V1 línea temporal con jerarquía Año → Trimestre → Mes (flechas ↓, ⇊ y ↑ del encabezado para bajar y subir de nivel); V2 mercados y vías; V3 total anual. Un clic en una barra de V2 o una columna de V3 filtra los demás gráficos; otro clic quita la selección.
+2. **Detalle mensual**: abre con 2025 y Total. Elija año y serie para ver V4. Sin año elegido aparece «Elija un año para ver sus meses».
+3. **Calendario y mercados**: V5 secuencia mensual, V6 perfil estacional y V7 recuperación de 2025 respecto de 2019 (línea discontinua = 100). Los segmentadores solo afectan a V5 y V6; V7 compara siempre todas las series.
+4. **Pronósticos**: abre con Total y Post-pandemia. V8 y V8b muestran MAPE y MAE de los tres modelos (un color por modelo, igual que en V9); V9 traza observado y pronósticos; V10 el error del Ingenuo estacional. MAPE compara **solo una serie y un conjunto de evaluación a la vez**. Si elige No residentes, un aviso indica que esa serie no tiene modelos.
 
 ## Tres pruebas propuestas
 
 | Prueba | Secuencia en Power BI | Resultado de referencia de los CSV |
 |---|---|---|
-| A. Mercado recuperado | Calendario y mercados → V7 → compare Estados Unidos y El Salvador. | EE. UU. 146.13 %; El Salvador 126.77 % del nivel de 2019. |
-| B. Mes mínimo | Panorama → seleccione 2020 → Detalle mensual → año 2020, Total → regrese a Panorama. | Mayo 2020: 9,779 viajeros. |
-| C. Tres modelos | Pronósticos → Total → post-pandemia → lea V8 y V9. | Ingenuo estacional: MAPE 6.25 %; Holt-Winters 23.41 %; Suavizado 29.46 %. |
+| A. Mercado recuperado | Botón «3 · Calendario y mercados» → V7 → compare Estados Unidos y El Salvador. | EE. UU. 146.13 %; El Salvador 126.77 % del nivel de 2019. |
+| B. Mes mínimo | Panorama → clic en 2020 en V3 → ⇊ en V1 hasta meses → mínimo → ↑ y clic de nuevo en 2020 para regresar. (Alternativa: botón «2 · Detalle mensual», año 2020 → botón «1 · Panorama».) | Mayo 2020: 9,779 viajeros. |
+| C. Tres modelos | Botón «4 · Pronósticos» (ya abre en Total y Post-pandemia) → lea V8 y V9. | Ingenuo estacional: MAPE 6.25 %; Holt-Winters 23.41 %; Suavizado 29.46 %. |
 
 La tabla de pruebas observadas del documento está pendiente de cronometraje por personas reales en ambas versiones. Para el Laboratorio 10, el código está en el repositorio hermano `CC3084_Laboratorio_1/Notebooks/resultados/app.py` y se abre desde esa carpeta con `streamlit run app.py`. La ruta no forma parte de este repositorio; copie o clone el repositorio original para ejecutarla.
 
 ## Reproducir la definición editable
 
-`python scripts/completar_proyecto.py` vuelve a escribir las páginas del proyecto PBIP y sus medidas, sin tocar los CSV. Después ejecute `python scripts/validar_datos.py`. El primero usa como ruta inicial de los CSV el directorio de este repositorio en el equipo solicitado; cambie `RutaDatos` en Desktop al moverlo.
+`python scripts/completar_proyecto.py` vuelve a escribir las páginas 2-4, la navegación y las medidas del proyecto PBIP, sin tocar los CSV, y fija `RutaDatos` a la carpeta `datos_powerbi` de la copia donde se ejecuta. Después ejecute `python scripts/validar_datos.py`, abra el .pbip, pulse **Actualizar** y guárdelo como .pbix. `python scripts/generar_pdf.py` regenera `docs/Lab12_Diseno_Comparacion.pdf` desde `docs/Diseno_y_comparacion.md`.
 
 ## Limitaciones de los datos
 

@@ -1,0 +1,44 @@
+{
+  "name": "Observatorio de turismo - Lab 12",
+  "dataColors": [
+    "#1F4E79",
+    "#D9661F",
+    "#6A4C93",
+    "#2A8C82",
+    "#9DBBD9",
+    "#B9C0C8",
+    "#A84A12",
+    "#55606C"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#1B2733",
+  "tableAccent": "#1F4E79",
+  "good": "#1F4E79",
+  "neutral": "#B9C0C8",
+  "bad": "#D9661F",
+  "maximum": "#1F4E79",
+  "center": "#9DBBD9",
+  "minimum": "#F2F5F9",
+  "textClasses": {
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 14,
+      "color": "#1B2733"
+    },
+    "header": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 12,
+      "color": "#1B2733"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 10,
+      "color": "#55606C"
+    },
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 24,
+      "color": "#1F4E79"
+    }
+  }
+}

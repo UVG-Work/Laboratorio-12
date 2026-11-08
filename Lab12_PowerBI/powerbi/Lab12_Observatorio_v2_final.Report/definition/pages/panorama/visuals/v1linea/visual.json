@@ -1,0 +1,199 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "v1linea",
+  "position": {
+    "x": 20,
+    "y": 110,
+    "z": 0,
+    "height": 300,
+    "width": 1240,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_fecha"
+                        }
+                      },
+                      "Hierarchy": "Año › Trimestre › Mes"
+                    }
+                  },
+                  "Level": "Año"
+                }
+              },
+              "queryRef": "dim_fecha.Año › Trimestre › Mes.Año",
+              "nativeQueryRef": "Año › Trimestre › Mes Año",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_fecha"
+                        }
+                      },
+                      "Hierarchy": "Año › Trimestre › Mes"
+                    }
+                  },
+                  "Level": "Trimestre"
+                }
+              },
+              "queryRef": "dim_fecha.Año › Trimestre › Mes.Trimestre",
+              "nativeQueryRef": "Año › Trimestre › Mes Trimestre",
+              "active": false
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dim_fecha"
+                        }
+                      },
+                      "Hierarchy": "Año › Trimestre › Mes"
+                    }
+                  },
+                  "Level": "Mes"
+                }
+              },
+              "queryRef": "dim_fecha.Año › Trimestre › Mes.Mes",
+              "nativeQueryRef": "Año › Trimestre › Mes Mes",
+              "active": false
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_serie"
+                    }
+                  },
+                  "Property": "Viajeros"
+                }
+              },
+              "queryRef": "dim_serie.Viajeros",
+              "nativeQueryRef": "Viajeros"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'¿Cómo ha evolucionado el flujo de viajeros?'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ba790dddacc3cc0a30c8",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_fecha"
+                  }
+                },
+                "Hierarchy": "Año › Trimestre › Mes"
+              }
+            },
+            "Level": "Año"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "acb6e7ae50843ed65e00",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_fecha"
+                  }
+                },
+                "Hierarchy": "Año › Trimestre › Mes"
+              }
+            },
+            "Level": "Trimestre"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6949f32b046409432964",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "dim_fecha"
+                  }
+                },
+                "Hierarchy": "Año › Trimestre › Mes"
+              }
+            },
+            "Level": "Mes"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "d4a9e977a86b9e36cb77",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dim_serie"
+              }
+            },
+            "Property": "Viajeros"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

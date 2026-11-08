@@ -1,0 +1,35 @@
+table fact_observado
+	lineageTag: 462ee51d-1b95-416b-9ed2-49153af97d00
+
+	column serie_id
+		dataType: string
+		lineageTag: aeaa1691-ea88-4ad0-93b4-b613f43f5071
+		summarizeBy: none
+		sourceColumn: serie_id
+
+	column fecha
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: d5db499c-3f1b-426c-ad56-759436b05497
+		summarizeBy: none
+		sourceColumn: fecha
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column viajeros
+		dataType: double
+		formatString: #,0.00
+		lineageTag: c16fd14c-36c1-45e5-9d1c-9921d93e1c7c
+		summarizeBy: sum
+		sourceColumn: viajeros
+
+	partition fact_observado = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "fact_observado.csv"), [Delimiter = ",", Columns = 3, Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Tipos = Table.TransformColumnTypes(Encabezados, {{"serie_id", type text}, {"fecha", type date}, {"viajeros", type number}}, "en-US")
+				in
+				    Tipos
+

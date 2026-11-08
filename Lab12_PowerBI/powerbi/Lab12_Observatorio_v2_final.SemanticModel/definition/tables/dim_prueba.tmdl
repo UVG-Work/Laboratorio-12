@@ -1,0 +1,49 @@
+table dim_prueba
+	lineageTag: 48f1e303-aa27-44a7-871d-b43b5ead4df2
+
+	column prueba
+		dataType: string
+		lineageTag: 5271e388-8ffc-48a3-be21-29379dcf799a
+		summarizeBy: none
+		sourceColumn: prueba
+
+	column prueba_nombre
+		dataType: string
+		lineageTag: 68fd9c42-c757-4bc4-ac33-0896ba2589ed
+		summarizeBy: none
+		sourceColumn: prueba_nombre
+
+	column entrenamiento
+		dataType: string
+		lineageTag: 6f47f56a-4363-402b-936a-8124c95fa29f
+		summarizeBy: none
+		sourceColumn: entrenamiento
+
+	column evaluacion
+		dataType: string
+		lineageTag: 5631dbdf-b33d-4214-9f6d-f66494d23970
+		summarizeBy: none
+		sourceColumn: evaluacion
+
+	column meses_evaluados
+		dataType: int64
+		lineageTag: af8f39f7-f346-4121-88c7-582ea6055139
+		summarizeBy: none
+		sourceColumn: meses_evaluados
+
+	column orden
+		dataType: int64
+		lineageTag: a4b042b6-b66f-47cc-8f91-010404079cbf
+		summarizeBy: none
+		sourceColumn: orden
+
+	partition dim_prueba = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "dim_prueba.csv"), [Delimiter = ",", Columns = 6, Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				    Tipos = Table.TransformColumnTypes(Encabezados, {{"prueba", type text}, {"prueba_nombre", type text}, {"entrenamiento", type text}, {"evaluacion", type text}, {"meses_evaluados", Int64.Type}, {"orden", Int64.Type}}, "en-US")
+				in
+				    Tipos
+

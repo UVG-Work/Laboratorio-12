@@ -1,0 +1,20 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/1.0.0/schema.json",
+  "name": "calendario",
+  "displayName": "3 · Calendario y mercados",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "visualInteractions": [
+    {
+      "source": "v5calendario",
+      "target": "v6estacional",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v7recuperacion",
+      "target": "v5calendario",
+      "type": "DataFilter"
+    }
+  ]
+}

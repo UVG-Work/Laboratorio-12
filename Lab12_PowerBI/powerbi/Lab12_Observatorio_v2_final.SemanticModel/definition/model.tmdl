@@ -1,0 +1,22 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["RutaDatos", "dim_serie", "dim_fecha", "dim_modelo", "dim_prueba", "fact_observado", "fact_predicciones", "fact_metricas"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table dim_serie
+ref table dim_fecha
+ref table dim_modelo
+ref table dim_prueba
+ref table fact_observado
+ref table fact_predicciones
+ref table fact_metricas
+

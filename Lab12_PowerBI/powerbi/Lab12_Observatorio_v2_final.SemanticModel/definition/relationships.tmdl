@@ -1,0 +1,36 @@
+relationship 37d1c287-21ca-4a1d-ae22-d2b881270f80
+	fromColumn: fact_observado.serie_id
+	toColumn: dim_serie.serie_id
+
+relationship ad388598-4ab6-42a8-b1c2-b774e71f9bcf
+	fromColumn: fact_predicciones.serie_id
+	toColumn: dim_serie.serie_id
+
+relationship 09dd7386-d1d9-400a-90d3-454cafc915a9
+	fromColumn: fact_metricas.serie_id
+	toColumn: dim_serie.serie_id
+
+relationship 4f0042bf-a458-4fe8-ad87-ba1f37970eb7
+	fromColumn: fact_observado.fecha
+	toColumn: dim_fecha.fecha
+
+relationship f9e4fa46-10ec-44e2-b144-cebe61aedb43
+	fromColumn: fact_predicciones.fecha
+	toColumn: dim_fecha.fecha
+
+relationship 1295a37c-b43f-4ac4-bf7c-5e0de6a5662d
+	fromColumn: fact_predicciones.modelo_id
+	toColumn: dim_modelo.modelo_id
+
+relationship cd716ce5-8686-4702-b703-37d2260cc39d
+	fromColumn: fact_metricas.modelo_id
+	toColumn: dim_modelo.modelo_id
+
+relationship fae1fcc1-aae3-4d73-affc-cdfa7d16cbc4
+	fromColumn: fact_predicciones.prueba
+	toColumn: dim_prueba.prueba
+
+relationship 8da07281-f05d-40ba-9b14-57c6a70576f8
+	fromColumn: fact_metricas.prueba
+	toColumn: dim_prueba.prueba
+

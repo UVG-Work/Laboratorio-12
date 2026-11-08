@@ -1,0 +1,120 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "v9pronosticos",
+  "position": {
+    "x": 20,
+    "y": 380,
+    "z": 0,
+    "width": 790,
+    "height": 320,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_fecha"
+                    }
+                  },
+                  "Property": "fecha"
+                }
+              },
+              "queryRef": "dim_fecha.fecha",
+              "nativeQueryRef": "fecha"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_serie"
+                    }
+                  },
+                  "Property": "Real evaluación"
+                }
+              },
+              "queryRef": "dim_serie.Real evaluación",
+              "nativeQueryRef": "Real evaluación"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_serie"
+                    }
+                  },
+                  "Property": "Pronóstico Holt-Winters"
+                }
+              },
+              "queryRef": "dim_serie.Pronóstico Holt-Winters",
+              "nativeQueryRef": "Pronóstico Holt-Winters"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_serie"
+                    }
+                  },
+                  "Property": "Pronóstico ingenuo estacional"
+                }
+              },
+              "queryRef": "dim_serie.Pronóstico ingenuo estacional",
+              "nativeQueryRef": "Pronóstico ingenuo estacional"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_serie"
+                    }
+                  },
+                  "Property": "Pronóstico suavizado simple"
+                }
+              },
+              "queryRef": "dim_serie.Pronóstico suavizado simple",
+              "nativeQueryRef": "Pronóstico suavizado simple"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'V9 · Observado y predicciones importadas'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/1.0.0/schema.json",
+  "name": "panorama",
+  "displayName": "1 · Panorama",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "visualInteractions": [
+    {
+      "source": "v2barras",
+      "target": "v1linea",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v2barras",
+      "target": "v3columnas",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v3columnas",
+      "target": "v1linea",
+      "type": "DataFilter"
+    },
+    {
+      "source": "v3columnas",
+      "target": "v2barras",
+      "type": "DataFilter"
+    }
+  ]
+}

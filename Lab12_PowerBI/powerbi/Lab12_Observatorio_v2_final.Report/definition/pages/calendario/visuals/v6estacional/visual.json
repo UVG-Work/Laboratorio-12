@@ -3,10 +3,10 @@
   "name": "v6estacional",
   "position": {
     "x": 650,
-    "y": 105,
+    "y": 157,
     "z": 0,
-    "width": 610,
     "height": 280,
+    "width": 610,
     "tabOrder": 0
   },
   "visual": {
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "dim_fecha.mes",
-              "nativeQueryRef": "mes"
+              "nativeQueryRef": "mes",
+              "active": true
             }
           ]
         },

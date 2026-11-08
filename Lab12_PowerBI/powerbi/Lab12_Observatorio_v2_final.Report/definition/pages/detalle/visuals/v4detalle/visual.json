@@ -3,10 +3,10 @@
   "name": "v4detalle",
   "position": {
     "x": 20,
-    "y": 105,
+    "y": 157,
     "z": 0,
-    "width": 1240,
     "height": 595,
+    "width": 1240,
     "tabOrder": 0
   },
   "visual": {
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "dim_fecha.mes",
-              "nativeQueryRef": "mes"
+              "nativeQueryRef": "mes",
+              "active": true
             }
           ]
         },
@@ -41,15 +42,30 @@
                       "Entity": "dim_serie"
                     }
                   },
-                  "Property": "Viajeros"
+                  "Property": "Viajeros del año elegido"
                 }
               },
-              "queryRef": "dim_serie.Viajeros",
-              "nativeQueryRef": "Viajeros"
+              "queryRef": "dim_serie.Viajeros del año elegido",
+              "nativeQueryRef": "Viajeros del año elegido"
             }
           ]
         }
       }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "visualContainerObjects": {
       "title": [
@@ -65,7 +81,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'V4 · ¿En qué mes cambió el flujo? Use el filtro de año'"
+                  "Value": "'V4 · ¿En qué mes del año elegido subió o bajó el flujo?'"
                 }
               }
             }

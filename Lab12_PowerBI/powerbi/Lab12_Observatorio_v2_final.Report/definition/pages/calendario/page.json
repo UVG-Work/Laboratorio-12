@@ -3,7 +3,7 @@
   "name": "calendario",
   "displayName": "3 · Calendario y mercados",
   "displayOption": "FitToPage",
-  "height": 720,
+  "height": 772,
   "width": 1280,
   "visualInteractions": [
     {
@@ -15,6 +15,16 @@
       "source": "v7recuperacion",
       "target": "v5calendario",
       "type": "DataFilter"
+    },
+    {
+      "source": "seleccion_serie_cal",
+      "target": "v7recuperacion",
+      "type": "NoFilter"
+    },
+    {
+      "source": "seleccion_anio_cal",
+      "target": "v7recuperacion",
+      "type": "NoFilter"
     }
   ]
 }

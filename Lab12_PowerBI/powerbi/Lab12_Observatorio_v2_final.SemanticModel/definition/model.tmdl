@@ -20,3 +20,5 @@ ref table fact_observado
 ref table fact_predicciones
 ref table fact_metricas
 
+ref cultureInfo en-US
+

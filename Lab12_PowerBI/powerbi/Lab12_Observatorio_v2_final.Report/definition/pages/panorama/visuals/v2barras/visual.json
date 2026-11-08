@@ -3,7 +3,7 @@
   "name": "v2barras",
   "position": {
     "x": 20,
-    "y": 420,
+    "y": 472,
     "z": 0,
     "width": 610,
     "height": 290,
@@ -85,7 +85,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'¿Qué mercados y vías aportan más viajeros?'"
+                  "Value": "'V2 · ¿Qué mercados y vías aportan más viajeros?'"
                 }
               }
             }

@@ -3,7 +3,7 @@
   "name": "v3columnas",
   "position": {
     "x": 650,
-    "y": 420,
+    "y": 472,
     "z": 0,
     "width": 610,
     "height": 290,
@@ -85,7 +85,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'¿Cuántos viajeros ingresaron cada año?'"
+                  "Value": "'V3 · ¿Cuántos viajeros ingresaron cada año?'"
                 }
               }
             }

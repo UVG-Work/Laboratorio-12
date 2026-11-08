@@ -3,7 +3,7 @@
   "name": "segmento_anio",
   "position": {
     "x": 20,
-    "y": 10,
+    "y": 62,
     "z": 0,
     "width": 400,
     "height": 90,
@@ -28,7 +28,8 @@
               },
               "queryRef": "dim_fecha.anio",
               "nativeQueryRef": "anio",
-              "active": true
+              "active": true,
+              "displayName": "Años"
             }
           ]
         }

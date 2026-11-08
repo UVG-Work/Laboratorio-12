@@ -12,61 +12,82 @@ table dim_serie
 	measure 'Mensaje sin datos' =
 			IF ( ISBLANK ( [Viajeros] ),
 			     "No hay registros para esta selección. Revise la serie o el rango de años.",
-			     BLANK () )
+			     "" )
 		lineageTag: 5adfe536-a30b-455a-b305-094e4cef9ad8
-
 
 	measure 'Nivel 2025 frente a 2019' =
 			VAR base = CALCULATE ( [Viajeros], REMOVEFILTERS ( dim_fecha ), dim_fecha[anio] = 2019 )
 			VAR actual = CALCULATE ( [Viajeros], REMOVEFILTERS ( dim_fecha ), dim_fecha[anio] = 2025 )
 			RETURN IF ( SELECTEDVALUE ( dim_serie[serie_id] ) = "gt", BLANK (), DIVIDE ( actual, base ) * 100 )
 		formatString: 0.0
+		lineageTag: 0ad9d70c-b2a1-4f13-a895-2d0d22189df9
 
-	measure 'Promedio mensual por año' =
-			AVERAGEX ( VALUES ( dim_fecha[anio] ), [Viajeros] )
+	measure 'Promedio mensual por año' = AVERAGEX ( VALUES ( dim_fecha[anio] ), [Viajeros] )
 		formatString: #,0
+		lineageTag: a4428a68-f1a1-4b36-829f-1454fcc5821e
 
 	measure 'MAPE evaluación' =
 			VAR s = IF ( HASONEVALUE ( dim_serie[serie_id] ), SELECTEDVALUE ( dim_serie[serie_id] ), "total" )
 			VAR p = IF ( HASONEVALUE ( dim_prueba[prueba] ), SELECTEDVALUE ( dim_prueba[prueba] ), "post-pandemia" )
 			RETURN CALCULATE ( MAX ( fact_metricas[MAPE] ), dim_serie[serie_id] = s, dim_prueba[prueba] = p )
 		formatString: 0.00
+		lineageTag: e4124bc0-2f56-4241-946a-2450579b28b1
 
 	measure 'MAE evaluación' =
 			VAR s = IF ( HASONEVALUE ( dim_serie[serie_id] ), SELECTEDVALUE ( dim_serie[serie_id] ), "total" )
 			VAR p = IF ( HASONEVALUE ( dim_prueba[prueba] ), SELECTEDVALUE ( dim_prueba[prueba] ), "post-pandemia" )
 			RETURN CALCULATE ( MAX ( fact_metricas[MAE] ), dim_serie[serie_id] = s, dim_prueba[prueba] = p )
 		formatString: #,0.00
+		lineageTag: ed5dab63-0219-46b8-bffc-b9ccd99fc2e8
 
 	measure 'Real evaluación' =
 			VAR s = IF ( HASONEVALUE ( dim_serie[serie_id] ), SELECTEDVALUE ( dim_serie[serie_id] ), "total" )
 			VAR p = IF ( HASONEVALUE ( dim_prueba[prueba] ), SELECTEDVALUE ( dim_prueba[prueba] ), "post-pandemia" )
 			RETURN CALCULATE ( MAX ( fact_predicciones[real] ), dim_serie[serie_id] = s, dim_prueba[prueba] = p )
 		formatString: #,0
+		lineageTag: 4f654c3a-320c-4f15-947a-d96066d0a8c9
 
 	measure 'Pronóstico Holt-Winters' =
 			VAR s = IF ( HASONEVALUE ( dim_serie[serie_id] ), SELECTEDVALUE ( dim_serie[serie_id] ), "total" )
 			VAR p = IF ( HASONEVALUE ( dim_prueba[prueba] ), SELECTEDVALUE ( dim_prueba[prueba] ), "post-pandemia" )
 			RETURN CALCULATE ( MAX ( fact_predicciones[pronostico] ), dim_serie[serie_id] = s, dim_prueba[prueba] = p, dim_modelo[modelo_id] = 1 )
 		formatString: #,0
+		lineageTag: 6f078980-1674-4764-8954-1d805b6bc637
 
 	measure 'Pronóstico ingenuo estacional' =
 			VAR s = IF ( HASONEVALUE ( dim_serie[serie_id] ), SELECTEDVALUE ( dim_serie[serie_id] ), "total" )
 			VAR p = IF ( HASONEVALUE ( dim_prueba[prueba] ), SELECTEDVALUE ( dim_prueba[prueba] ), "post-pandemia" )
 			RETURN CALCULATE ( MAX ( fact_predicciones[pronostico] ), dim_serie[serie_id] = s, dim_prueba[prueba] = p, dim_modelo[modelo_id] = 17 )
 		formatString: #,0
+		lineageTag: eac9f089-2109-4de2-aec8-fe016241ea77
 
 	measure 'Pronóstico suavizado simple' =
 			VAR s = IF ( HASONEVALUE ( dim_serie[serie_id] ), SELECTEDVALUE ( dim_serie[serie_id] ), "total" )
 			VAR p = IF ( HASONEVALUE ( dim_prueba[prueba] ), SELECTEDVALUE ( dim_prueba[prueba] ), "post-pandemia" )
 			RETURN CALCULATE ( MAX ( fact_predicciones[pronostico] ), dim_serie[serie_id] = s, dim_prueba[prueba] = p, dim_modelo[modelo_id] = 18 )
 		formatString: #,0
+		lineageTag: 490c1d72-f803-4b7c-92cd-3159e847d76e
 
 	measure 'Error mensual evaluación' =
 			VAR s = IF ( HASONEVALUE ( dim_serie[serie_id] ), SELECTEDVALUE ( dim_serie[serie_id] ), "total" )
 			VAR p = IF ( HASONEVALUE ( dim_prueba[prueba] ), SELECTEDVALUE ( dim_prueba[prueba] ), "post-pandemia" )
 			RETURN CALCULATE ( MAX ( fact_predicciones[error] ), dim_serie[serie_id] = s, dim_prueba[prueba] = p, dim_modelo[modelo_id] = 17 )
 		formatString: #,0
+		lineageTag: 3dcf1a04-39e2-4116-a076-d70e14c8e659
+
+	measure 'Viajeros del año elegido' = IF ( HASONEVALUE ( dim_fecha[anio] ), [Viajeros] )
+		formatString: #,0
+		lineageTag: 734c438c-8a7f-40da-b1cc-d843be97508f
+
+	measure 'Mensaje detalle' =
+			IF ( NOT HASONEVALUE ( dim_fecha[anio] ), "Elija un año para ver sus meses.",
+			     IF ( ISBLANK ( [Viajeros] ), "No hay registros para esta selección. Revise la serie o el año.", "" ) )
+		lineageTag: e25b41c4-c9c8-4879-95d8-a96c1f391c7f
+
+	measure 'Mensaje pronósticos' =
+			IF ( ISBLANK ( [MAPE evaluación] ),
+			     "Sin pronósticos: No residentes es una serie derivada, sin modelos.", "" )
+		lineageTag: 31cc2371-68f0-4515-90f3-87feb11a9f25
 
 	column serie_id
 		dataType: string

@@ -3,10 +3,10 @@
   "name": "v9pronosticos",
   "position": {
     "x": 20,
-    "y": 380,
+    "y": 432,
     "z": 0,
-    "width": 790,
     "height": 320,
+    "width": 720,
     "tabOrder": 0
   },
   "visual": {
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "dim_fecha.fecha",
-              "nativeQueryRef": "fecha"
+              "nativeQueryRef": "fecha",
+              "active": true
             }
           ]
         },
@@ -45,7 +46,8 @@
                 }
               },
               "queryRef": "dim_serie.Real evaluación",
-              "nativeQueryRef": "Real evaluación"
+              "nativeQueryRef": "Real evaluación",
+              "displayName": "Observado"
             },
             {
               "field": {
@@ -59,7 +61,8 @@
                 }
               },
               "queryRef": "dim_serie.Pronóstico Holt-Winters",
-              "nativeQueryRef": "Pronóstico Holt-Winters"
+              "nativeQueryRef": "Pronóstico Holt-Winters",
+              "displayName": "Holt-Winters"
             },
             {
               "field": {
@@ -73,7 +76,8 @@
                 }
               },
               "queryRef": "dim_serie.Pronóstico ingenuo estacional",
-              "nativeQueryRef": "Pronóstico ingenuo estacional"
+              "nativeQueryRef": "Pronóstico ingenuo estacional",
+              "displayName": "Ingenuo estacional"
             },
             {
               "field": {
@@ -87,7 +91,8 @@
                 }
               },
               "queryRef": "dim_serie.Pronóstico suavizado simple",
-              "nativeQueryRef": "Pronóstico suavizado simple"
+              "nativeQueryRef": "Pronóstico suavizado simple",
+              "displayName": "Suavizado exponencial"
             }
           ]
         }

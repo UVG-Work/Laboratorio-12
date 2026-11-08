@@ -3,7 +3,7 @@
   "name": "v1linea",
   "position": {
     "x": 20,
-    "y": 110,
+    "y": 162,
     "z": 0,
     "height": 300,
     "width": 1240,
@@ -111,7 +111,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'¿Cómo ha evolucionado el flujo de viajeros?'"
+                  "Value": "'V1 · ¿Cómo ha evolucionado el flujo de viajeros?'"
                 }
               }
             }

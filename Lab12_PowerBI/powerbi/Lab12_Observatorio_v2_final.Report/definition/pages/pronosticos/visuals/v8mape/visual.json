@@ -3,10 +3,10 @@
   "name": "v8mape",
   "position": {
     "x": 20,
-    "y": 105,
+    "y": 157,
     "z": 0,
-    "width": 610,
     "height": 265,
+    "width": 610,
     "tabOrder": 0
   },
   "visual": {
@@ -27,7 +27,8 @@
                 }
               },
               "queryRef": "dim_modelo.modelo_nombre",
-              "nativeQueryRef": "modelo_nombre"
+              "nativeQueryRef": "modelo_nombre",
+              "active": true
             }
           ]
         },
@@ -51,6 +52,146 @@
         }
       }
     },
+    "objects": {
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#D9661F'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "dim_modelo"
+                          }
+                        },
+                        "Property": "modelo_nombre"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Holt-Winters'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#6A4C93'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "dim_modelo"
+                          }
+                        },
+                        "Property": "modelo_nombre"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Ingenuo estacional'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#2A8C82'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "dim_modelo"
+                          }
+                        },
+                        "Property": "modelo_nombre"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Suavizado exponencial'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "visualContainerObjects": {
       "title": [
         {
@@ -65,7 +206,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'V8 · MAPE (%) por modelo · menor es mejor'"
+                  "Value": "'V8 · Error porcentual medio (MAPE, %) · menor es mejor'"
                 }
               }
             }
@@ -94,7 +235,7 @@
           "Version": 2,
           "From": [
             {
-              "Name": "m",
+              "Name": "t",
               "Entity": "dim_modelo",
               "Type": 0
             }
@@ -108,7 +249,7 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Source": "m"
+                            "Source": "t"
                           }
                         },
                         "Property": "principal"

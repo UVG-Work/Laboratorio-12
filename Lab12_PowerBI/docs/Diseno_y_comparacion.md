@@ -61,7 +61,7 @@ El avance registra las tareas 1-4 como terminadas por Andrés el 5 de noviembre.
 |---|---|---|---|---|---|
 | Preparar y validar datos | Andrés | 5 nov | No registrado | No registrado | CSV y validación disponibles |
 | Completar páginas Power BI | Rodrigo, June, Andrés y Sebastián | 6-8 nov | No registrado | No registrado | Abierto y verificado en Desktop 2.159 el 8 nov; navegación, limpiar filtros y mensajes añadidos |
-| Pruebas de ambas versiones | June y Sebastián | 7 nov | No registrado | No registrado | Protocolo listo; ejecución pendiente |
+| Pruebas de ambas versiones | June y Sebastián | 7 nov | No registrado | No registrado | Ejecutadas el 8 nov en ambas versiones (sección 8 y `registro_pruebas.csv`) |
 | Documento y entrega final | Rodrigo y Sebastián | 8 nov | No registrado | No registrado | PDF generado; `Lab12_Observatorio_v2_final.pbix` guardado desde Desktop el 8 nov |
 
 El tiempo efectivo debe anotarse desde los registros reales del equipo; no se infiere a partir de fechas de modificación. Para evitar sobrescribir el binario .pbix, una persona debe integrarlo y registrar su versión. El PBIP permite revisar diferencias de páginas, visuales y medidas por archivo de texto.
@@ -74,7 +74,7 @@ El tiempo efectivo debe anotarse desde los registros reales del equipo; no se in
 | Tiempo de desarrollo | La versión Lab 10 existe y tiene diez visuales; no hay bitácora horaria. | El avance tenía tres gráficos; la definición final propuesta tiene once, sin bitácora horaria. | No se puede afirmar cuál fue más rápido sin horas efectivas. |
 | Preparación y actualización | La aplicación lee archivos del repositorio y se reinicia/recarga según su código. | Siete CSV importados, parámetro `RutaDatos` y actualización explícita. | Power BI facilita la actualización local si las rutas son válidas; Streamlit permite automatizarla por código. |
 | Integración de modelos | Código Python lee resultados existentes y construye las vistas. | Hechos separados de predicciones y métricas; 4,284 y 98 filas conservadas. | Ambos pueden reutilizar resultados sin entrenar de nuevo; hay que respetar el grano. |
-| Interacción y navegación | Selecciones Plotly y pestañas Streamlit están implementadas en `app.py`. | V2/V3 filtran V1 y entre sí; V1 tiene drill down/up; franja de navegación y botón «Limpiar filtros» en cada página (verificado en Desktop). | Ambos sirven para exploración; en Power BI la navegación y el filtrado cruzado son nativos y no requieren código. |
+| Interacción y navegación | Selecciones Plotly y pestañas Streamlit están implementadas en `app.py`. | V2/V3 filtran V1 y entre sí; V1 tiene drill down/up; franja de navegación y botón «Limpiar filtros» en cada página (verificado en Desktop). | Ambos sirven para exploración; en Power BI la navegación y el filtrado cruzado son nativos y no requieren código. En las tres pruebas, ambos sumaron 6 clics; Power BI tardó 22 s y Streamlit 36 s (sección 8). |
 | Personalización | Plotly implementa heatmap y dumbbell con código. | Se sustituyen V5 y V8 por visuales nativos. | Streamlit conserva mejor controles y gráficos especializados. |
 | Rendimiento | No existe medición comparable en el mismo equipo. | En un equipo Windows 11, la actualización de los siete CSV terminó en menos de un minuto y el cambio de página fue inmediato (observación sin cronómetro, 8 nov). | No emitir conclusión de velocidad comparada hasta medir ambas versiones en el mismo equipo. |
 | Colaboración y versiones | `app.py` y archivos de datos son texto legible en Git. | PBIP divide reporte/modelo en JSON y TMDL; .pbix es binario. | PBIP ayuda a revisar cambios; la integración del .pbix debe coordinarse. |
@@ -105,9 +105,20 @@ Las tres tareas deben ejecutarse por la misma persona, en el mismo equipo y con 
 | B. General → detalle → regreso | Panorama: clic en 2020 en V3 → V1 baja a meses (⇊) → hallar mínimo → subir (↑) y quitar la selección; o botón «2 · Detalle mensual», año 2020 → botón «1 · Panorama». | Mayo de 2020: 9,779 viajeros. | Información sobre herramientas de V1: mayo 9,779 (captura 03). |
 | C. Tres modelos | Botón «4 · Pronósticos» (abre en Total y Post-pandemia) → leer V8 y V9. | Ingenuo estacional 6.25 %; Holt-Winters 23.41 %; Suavizado 29.46 %. | V8: 6.25, 23.41 y 29.46 (captura 13). |
 
-Los valores de la última columna confirman que el informe responde correctamente. **Clics, tiempo y dificultades deben medirlos integrantes del equipo** en ambas herramientas, con el mismo equipo y la misma selección, y anotarse en `docs/registro_pruebas.csv`; no se registran aquí cifras que no se midieron.
+Los valores de la última columna confirman que el informe responde correctamente.
 
-Las pruebas 70/30 y post-pandemia tienen horizontes distintos: 63 y 18 meses respectivamente. El MAPE de una prueba no debe leerse como comparable directamente con el de la otra. Para registrar una ejecución, complete `docs/registro_pruebas.csv` con fecha, evaluador, herramienta, selección, resultado, clics, segundos y observaciones.
+**Resultados observados (8 de noviembre de 2026).** Un integrante del equipo (skemono) ejecutó las tres tareas en ambas versiones, en el mismo equipo Windows 11, partiendo de la vista inicial de cada una. Midió el tiempo con cronómetro hasta leer el resultado. El detalle está en `docs/registro_pruebas.csv`.
+
+| Tarea | Power BI: clics | Power BI: segundos | Streamlit: clics | Streamlit: segundos | Dificultades |
+|---|---:|---:|---:|---:|---|
+| A. Recuperación de mercados | 2 | 11 | 2 | 13 | Ninguna reportada |
+| B. General → detalle → regreso | 3 | 8 | 1 | 9 | Ninguna reportada |
+| C. Tres modelos | 1 | 3 | 3 | 14 | Ninguna reportada |
+| **Total** | **6** | **22** | **6** | **36** | |
+
+Las dos versiones necesitaron el mismo número de clics en total (6). Power BI fue 14 s más rápido (22 s frente a 36 s), y la mayor diferencia está en la tarea C: el botón «4 · Pronósticos» abre ya en Total y Post-pandemia. Streamlit llegó al mes mínimo con menos clics (1 frente a 3), porque Power BI exige seleccionar el año y bajar de nivel en V1. **Limitaciones:** hay un solo evaluador y una sola ejecución por tarea, y el evaluador ya conocía ambas versiones. Por eso los tiempos indican una tendencia, no una diferencia concluyente de usabilidad para usuarios nuevos.
+
+Las pruebas 70/30 y post-pandemia tienen horizontes distintos: 63 y 18 meses respectivamente. El MAPE de una prueba no debe leerse como comparable directamente con el de la otra.
 
 ## 9. Consistencia y discrepancias
 
@@ -127,7 +138,7 @@ Los valores de la columna «Visual de Power BI» se leyeron en el informe abiert
 | Exploración con controles y visualizaciones muy personalizados | Streamlit + Plotly | El código existente conserva el mapa de calor y los gráficos especializados. Requiere mantenimiento de Python y alojamiento. |
 | Consulta externa en navegador sin instalar software | Streamlit + Plotly | Community Cloud puede servir para un prototipo público sujeto a límites; para datos privados, elegir alojamiento y autenticación apropiados. Power BI en servicio es alternativa si se resuelven licencias y acceso. |
 
-Para este observatorio, conviene mantener Streamlit como versión flexible y usar Power BI para la consulta periódica de directivos, publicándolo solo cuando se resuelva el acceso permitido (licencias y datos). Una comparación final de rapidez y usabilidad exige las tres pruebas medidas en ambos entornos.
+Para este observatorio, conviene mantener Streamlit como versión flexible y usar Power BI para la consulta periódica de directivos, publicándolo solo cuando se resuelva el acceso permitido (licencias y datos). En las tres pruebas medidas, Power BI respondió en menos tiempo con los mismos clics (22 s frente a 36 s), sobre todo en la consulta de modelos. Hubo un solo evaluador, que ya conocía ambas versiones, así que conviene repetir las pruebas con directivos antes de una decisión definitiva.
 
 ## 11. Evidencias visuales
 

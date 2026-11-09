@@ -19,6 +19,7 @@ El informe final se abrió, actualizó y revisó en Power BI Desktop **2.159.123
 | `powerbi/` | Informes .pbix (avance y final), sus proyectos .pbip editables y el tema. |
 | `docs/` | Documento de diseño y comparación (.md y .pdf), registros de pruebas y tiempo, bosquejos y capturas del avance y de la versión final. |
 | `scripts/` | Generación del proyecto y validación de datos. |
+| `../Lab10_Streamlit/` | Tablero del Laboratorio 10 (`app.py`), sus datos y `Lab10_Diseno_Final.pdf`. |
 
 ## Abrir y actualizar
 
@@ -50,7 +51,15 @@ Cada página tiene arriba cuatro botones para cambiar de página y el botón **�
 | B. Mes mínimo | Panorama → clic en 2020 en V3 → ⇊ en V1 hasta meses → mínimo → ↑ y clic de nuevo en 2020 para regresar. (Alternativa: botón «2 · Detalle mensual», año 2020 → botón «1 · Panorama».) | Mayo 2020: 9,779 viajeros. |
 | C. Tres modelos | Botón «4 · Pronósticos» (ya abre en Total y Post-pandemia) → lea V8 y V9. | Ingenuo estacional: MAPE 6.25 %; Holt-Winters 23.41 %; Suavizado 29.46 %. |
 
-La tabla de pruebas observadas del documento está pendiente de cronometraje por personas reales en ambas versiones. Para el Laboratorio 10, el código está en el repositorio hermano `CC3084_Laboratorio_1/Notebooks/resultados/app.py` y se abre desde esa carpeta con `streamlit run app.py`. La ruta no forma parte de este repositorio; copie o clone el repositorio original para ejecutarla.
+June Herrera Watanabe ejecutó y cronometró las tres pruebas en ambas versiones el 8 de noviembre de 2026. Los resultados están en `docs/registro_pruebas.csv` y en la sección 8 del documento.
+
+**Versión del Laboratorio 10 (Streamlit).** El código, sus datos y el documento de diseño están en `../Lab10_Streamlit/`, copiados del repositorio original `rodrigoajmac/CC3084_Laboratorio_1` (commit `c547c67`). Para ejecutarla desde la raíz del repositorio:
+
+```
+cd Lab10_Streamlit
+python -m pip install -r requirements.txt
+python -m streamlit run app.py
+```
 
 ## Reproducir la definición editable
 

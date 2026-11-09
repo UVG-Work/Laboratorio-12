@@ -1,0 +1,1827 @@
+{
+ "ficha": {
+  "Total de viajeros": {
+   "inicio": "2009-01",
+   "fin": "2026-06",
+   "frecuencia": "mensual (12/año)",
+   "n_obs": 210,
+   "meses_en_0": 0,
+   "media": 248867.68,
+   "desv_est": 100683.39,
+   "CV_%": 40.46,
+   "min": 9779.0,
+   "max": 526190.0
+  },
+  "País: El Salvador": {
+   "inicio": "2009-01",
+   "fin": "2026-06",
+   "frecuencia": "mensual (12/año)",
+   "n_obs": 210,
+   "meses_en_0": 5,
+   "media": 77200.77,
+   "desv_est": 45285.0,
+   "CV_%": 58.66,
+   "min": 0.0,
+   "max": 201883.0
+  },
+  "País: Guatemala": {
+   "inicio": "2009-01",
+   "fin": "2026-06",
+   "frecuencia": "mensual (12/año)",
+   "n_obs": 210,
+   "meses_en_0": 42,
+   "media": 70429.9,
+   "desv_est": 51618.72,
+   "CV_%": 73.29,
+   "min": 0.0,
+   "max": 207097.0
+  },
+  "País: Estados Unidos de América": {
+   "inicio": "2009-01",
+   "fin": "2026-06",
+   "frecuencia": "mensual (12/año)",
+   "n_obs": 210,
+   "meses_en_0": 5,
+   "media": 33552.45,
+   "desv_est": 15518.74,
+   "CV_%": 46.25,
+   "min": 0.0,
+   "max": 79320.0
+  },
+  "Vía: Aérea": {
+   "inicio": "2009-01",
+   "fin": "2026-06",
+   "frecuencia": "mensual (12/año)",
+   "n_obs": 210,
+   "meses_en_0": 0,
+   "media": 90768.05,
+   "desv_est": 27717.84,
+   "CV_%": 30.54,
+   "min": 489.0,
+   "max": 158463.0
+  },
+  "Vía: Terrestre": {
+   "inicio": "2009-01",
+   "fin": "2026-06",
+   "frecuencia": "mensual (12/año)",
+   "n_obs": 210,
+   "meses_en_0": 0,
+   "media": 152248.46,
+   "desv_est": 74995.83,
+   "CV_%": 49.26,
+   "min": 5715.0,
+   "max": 357685.0
+  },
+  "Vía: Marítima": {
+   "inicio": "2009-01",
+   "fin": "2026-06",
+   "frecuencia": "mensual (12/año)",
+   "n_obs": 210,
+   "meses_en_0": 27,
+   "media": 5851.17,
+   "desv_est": 6708.57,
+   "CV_%": 114.65,
+   "min": 0.0,
+   "max": 29505.0
+  }
+ },
+ "split": {
+  "n": 210,
+  "n_train": 147,
+  "n_test": 63,
+  "train_ini": "2009-01",
+  "train_fin": "2021-03",
+  "test_ini": "2021-04",
+  "test_fin": "2026-06"
+ },
+ "series": {
+  "Total de viajeros": {
+   "nombre": "Total de viajeros",
+   "fuerza_tendencia": 0.958,
+   "fuerza_estacional": 0.836,
+   "fuerza_tendencia_full": 0.497,
+   "fuerza_estacional_full": 0.005,
+   "varianza": {
+    "corr_media_sd": 0.933,
+    "pendiente_log": 0.92,
+    "lambda_boxcox": -0.425
+   },
+   "transformacion": "log(1+x)",
+   "adf": [
+    {
+     "serie": "original",
+     "estadistico": -3.071,
+     "p_valor": 0.0288,
+     "rezagos": 12,
+     "crit_5%": -2.876,
+     "estacionaria": "sí"
+    },
+    {
+     "serie": "log(1+x)",
+     "estadistico": -3.11,
+     "p_valor": 0.0258,
+     "rezagos": 12,
+     "crit_5%": -2.876,
+     "estacionaria": "sí"
+    },
+    {
+     "serie": "log + 1 dif. regular",
+     "estadistico": -4.738,
+     "p_valor": 0.0001,
+     "rezagos": 13,
+     "crit_5%": -2.876,
+     "estacionaria": "sí"
+    },
+    {
+     "serie": "log + 1 reg. + 1 estacional",
+     "estadistico": -5.409,
+     "p_valor": 0.0,
+     "rezagos": 12,
+     "crit_5%": -2.877,
+     "estacionaria": "sí"
+    }
+   ],
+   "kpss": [
+    {
+     "serie": "log(1+x)",
+     "estadistico": 0.124,
+     "p_valor": 0.1,
+     "crit_5%": 0.463,
+     "estacionaria": "sí"
+    },
+    {
+     "serie": "log + 1 dif. regular",
+     "estadistico": 0.025,
+     "p_valor": 0.1,
+     "crit_5%": 0.463,
+     "estacionaria": "sí"
+    },
+    {
+     "serie": "log + 1 reg. + 1 estacional",
+     "estadistico": 0.021,
+     "p_valor": 0.1,
+     "crit_5%": 0.463,
+     "estacionaria": "sí"
+    }
+   ],
+   "d": 0,
+   "D": 1,
+   "comparacion": {
+    "SARIMA(0,0,1)(0,1,1,12)": {
+     "AIC": 209.306,
+     "BIC": 218.021,
+     "n_efec": 135.0,
+     "MAE": 101407.841,
+     "RMSE": 112600.809,
+     "MAPE": 42.018,
+     "LjungBox_p": 0.0
+    },
+    "Suav. exponencial simple": {
+     "AIC": -324.837,
+     "BIC": -318.856,
+     "n_efec": 147.0,
+     "MAE": 175065.08,
+     "RMSE": 194772.333,
+     "MAPE": 58.121,
+     "LjungBox_p": NaN
+    },
+    "SARIMA(1,0,1)(1,1,1,12)": {
+     "AIC": 72.847,
+     "BIC": 87.373,
+     "n_efec": 135.0,
+     "MAE": 176305.032,
+     "RMSE": 198569.303,
+     "MAPE": 59.037,
+     "LjungBox_p": 0.0
+    },
+    "Holt-Winters": {
+     "AIC": -348.018,
+     "BIC": -300.171,
+     "n_efec": 147.0,
+     "MAE": 196928.787,
+     "RMSE": 216429.741,
+     "MAPE": 65.314,
+     "LjungBox_p": NaN
+    },
+    "SARIMA(2,0,0)(1,1,0,12)": {
+     "AIC": 72.462,
+     "BIC": 84.083,
+     "n_efec": 135.0,
+     "MAE": 212631.689,
+     "RMSE": 235615.008,
+     "MAPE": 71.788,
+     "LjungBox_p": 0.0
+    },
+    "Seasonal naive": {
+     "AIC": NaN,
+     "BIC": NaN,
+     "n_efec": 147.0,
+     "MAE": 235685.556,
+     "RMSE": 253159.292,
+     "MAPE": 83.869,
+     "LjungBox_p": NaN
+    },
+    "SARIMA(1,1,1)(0,1,1,12)": {
+     "AIC": 76.36,
+     "BIC": 87.951,
+     "n_efec": 134.0,
+     "MAE": 241765.532,
+     "RMSE": 260702.422,
+     "MAPE": 83.281,
+     "LjungBox_p": 0.997
+    },
+    "SARIMA(0,1,1)(0,1,1,12) (aerolínea)": {
+     "AIC": 74.622,
+     "BIC": 83.316,
+     "n_efec": 134.0,
+     "MAE": 242883.94,
+     "RMSE": 261747.035,
+     "MAPE": 83.747,
+     "LjungBox_p": 0.997
+    }
+   },
+   "mejor_rmse": "SARIMA(0,0,1)(0,1,1,12)",
+   "mejor_aic": "SARIMA(2,0,0)(1,1,0,12)",
+   "residuos": {
+    "modelo": "SARIMA(2,0,0)(1,1,0,12)",
+    "ljungbox12_p": 0.0,
+    "ljungbox24_p": 0.0,
+    "jarquebera_p": 0.0
+   }
+  },
+  "País: El Salvador": {
+   "nombre": "País: El Salvador",
+   "fuerza_tendencia": 0.92,
+   "fuerza_estacional": 0.677,
+   "fuerza_tendencia_full": 0.227,
+   "fuerza_estacional_full": 0.0,
+   "varianza": {
+    "corr_media_sd": 0.947,
+    "pendiente_log": 1.24,
+    "lambda_boxcox": -0.244
+   },
+   "transformacion": "log(1+x)",
+   "adf": [
+    {
+     "serie": "original",
+     "estadistico": -2.043,
+     "p_valor": 0.2678,
+     "rezagos": 12,
+     "crit_5%": -2.876,
+     "estacionaria": "no"
+    },
+    {
+     "serie": "log(1+x)",
+     "estadistico": -3.37,
+     "p_valor": 0.012,
+     "rezagos": 5,
+     "crit_5%": -2.876,
+     "estacionaria": "sí"
+    },
+    {
+     "serie": "log + 1 dif. regular",
+     "estadistico": -9.554,
+     "p_valor": 0.0,
+     "rezagos": 4,
+     "crit_5%": -2.876,
+     "estacionaria": "sí"
+    },
+    {
+     "serie": "log + 1 reg. + 1 estacional",
+     "estadistico": -5.544,
+     "p_valor": 0.0,
+     "rezagos": 12,
+     "crit_5%": -2.877,
+     "estacionaria": "sí"
+    }
+   ],
+   "kpss": [
+    {
+     "serie": "log(1+x)",
+     "estadistico": 0.123,
+     "p_valor": 0.1,
+     "crit_5%": 0.463,
+     "estacionaria": "sí"
+    },
+    {
+     "serie": "log + 1 dif. regular",
+     "estadistico": 0.021,
+     "p_valor": 0.1,
+     "crit_5%": 0.463,
+     "estacionaria": "sí"
+    },
+    {
+     "serie": "log + 1 reg. + 1 estacional",
+     "estadistico": 0.015,
+     "p_valor": 0.1,
+     "crit_5%": 0.463,
+     "estacionaria": "sí"
+    }
+   ],
+   "d": 0,
+   "D": 1,
+   "comparacion": {
+    "Suav. exponencial simple": {
+     "AIC": 66.514,
+     "BIC": 72.495,
+     "n_efec": 147.0,
+     "MAE": 94057.946,
+     "RMSE": 104523.935,
+     "MAPE": 74.318,
+     "LjungBox_p": NaN
+    },
+    "Holt-Winters": {
+     "AIC": 86.034,
+     "BIC": 133.881,
+     "n_efec": 147.0,
+     "MAE": 101038.978,
+     "RMSE": 111521.121,
+     "MAPE": 81.05,
+     "LjungBox_p": NaN
+    },
+    "SARIMA(0,0,1)(0,1,1,12)": {
+     "AIC": 534.309,
+     "BIC": 543.025,
+     "n_efec": 135.0,
+     "MAE": 103644.122,
+     "RMSE": 114251.638,
+     "MAPE": 86.866,
+     "LjungBox_p": 0.0
+    },
+    "SARIMA(1,0,1)(1,1,1,12)": {
+     "AIC": 459.27,
+     "BIC": 473.796,
+     "n_efec": 135.0,
+     "MAE": 105075.038,
+     "RMSE": 115563.83,
+     "MAPE": 88.404,
+     "LjungBox_p": 0.0
+    },
+    "SARIMA(2,0,0)(1,1,0,12)": {
+     "AIC": 457.143,
+     "BIC": 468.764,
+     "n_efec": 135.0,
+     "MAE": 105308.604,
+     "RMSE": 115799.306,
+     "MAPE": 88.572,
+     "LjungBox_p": 0.0
+    },
+    "Seasonal naive": {
+     "AIC": NaN,
+     "BIC": NaN,
+     "n_efec": 147.0,
+     "MAE": 107468.317,
+     "RMSE": 117626.75,
+     "MAPE": 91.6,
+     "LjungBox_p": NaN
+    },
+    "SARIMA(1,1,1)(0,1,1,12)": {
+     "AIC": 465.391,
+     "BIC": 476.983,
+     "n_efec": 134.0,
+     "MAE": 112511.151,
+     "RMSE": 122519.901,
+     "MAPE": 96.798,
+     "LjungBox_p": 0.0
+    },
+    "SARIMA(0,1,1)(0,1,1,12) (aerolínea)": {
+     "AIC": 463.392,
+     "BIC": 472.085,
+     "n_efec": 134.0,
+     "MAE": 112511.371,
+     "RMSE": 122520.071,
+     "MAPE": 96.798,
+     "LjungBox_p": 0.0
+    }
+   },
+   "mejor_rmse": "Suav. exponencial simple",
+   "mejor_aic": "SARIMA(2,0,0)(1,1,0,12)",
+   "residuos": {
+    "modelo": "SARIMA(2,0,0)(1,1,0,12)",
+    "ljungbox12_p": 0.0,
+    "ljungbox24_p": 0.0,
+    "jarquebera_p": 0.0
+   }
+  },
+  "País: Guatemala": {
+   "nombre": "País: Guatemala",
+   "fuerza_tendencia": 0.971,
+   "fuerza_estacional": 0.861,
+   "fuerza_tendencia_full": 0.889,
+   "fuerza_estacional_full": 0.0,
+   "varianza": {
+    "corr_media_sd": 0.898,
+    "pendiente_log": 0.682,
+    "lambda_boxcox": -0.166
+   },
+   "transformacion": "log(1+x)",
+   "adf": [
+    {
+     "serie": "original",
+     "estadistico": -1.945,
+     "p_valor": 0.3111,
+     "rezagos": 12,
+     "crit_5%": -2.876,
+     "estacionaria": "no"
+    },
+    {
+     "serie": "log(1+x)",
+     "estadistico": -0.722,
+     "p_valor": 0.8409,
+     "rezagos": 0,
+     "crit_5%": -2.875,
+     "estacionaria": "no"
+    },
+    {
+     "serie": "log + 1 dif. regular",
+     "estadistico": -14.547,
+     "p_valor": 0.0,
+     "rezagos": 0,
+     "crit_5%": -2.876,
+     "estacionaria": "sí"
+    },
+    {
+     "serie": "log + 1 reg. + 1 estacional",
+     "estadistico": -6.781,
+     "p_valor": 0.0,
+     "rezagos": 11,
+     "crit_5%": -2.877,
+     "estacionaria": "sí"
+    }
+   ],
+   "kpss": [
+    {
+     "serie": "log(1+x)",
+     "estadistico": 1.2,
+     "p_valor": 0.01,
+     "crit_5%": 0.463,
+     "estacionaria": "no"
+    },
+    {
+     "serie": "log + 1 dif. regular",
+     "estadistico": 0.153,
+     "p_valor": 0.1,
+     "crit_5%": 0.463,
+     "estacionaria": "sí"
+    },
+    {
+     "serie": "log + 1 reg. + 1 estacional",
+     "estadistico": 0.028,
+     "p_valor": 0.1,
+     "crit_5%": 0.463,
+     "estacionaria": "sí"
+    }
+   ],
+   "d": 1,
+   "D": 1,
+   "comparacion": {
+    "SARIMA(1,1,1)(0,1,1,12)": {
+     "AIC": -3.728,
+     "BIC": 7.863,
+     "n_efec": 134.0,
+     "MAE": 32073.633,
+     "RMSE": 53765.784,
+     "MAPE": 60.581,
+     "LjungBox_p": 0.997
+    },
+    "SARIMA(0,1,1)(0,1,1,12)": {
+     "AIC": -5.66,
+     "BIC": 3.034,
+     "n_efec": 134.0,
+     "MAE": 31986.964,
+     "RMSE": 53844.482,
+     "MAPE": 60.981,
+     "LjungBox_p": 0.997
+    },
+    "SARIMA(0,1,1)(0,1,1,12) (aerolínea)": {
+     "AIC": -5.66,
+     "BIC": 3.034,
+     "n_efec": 134.0,
+     "MAE": 31986.964,
+     "RMSE": 53844.482,
+     "MAPE": 60.981,
+     "LjungBox_p": 0.997
+    },
+    "Holt-Winters": {
+     "AIC": -430.699,
+     "BIC": -382.852,
+     "n_efec": 147.0,
+     "MAE": 44224.687,
+     "RMSE": 54637.037,
+     "MAPE": 43.863,
+     "LjungBox_p": NaN
+    },
+    "SARIMA(1,1,1)(1,1,1,12)": {
+     "AIC": -6.043,
+     "BIC": 8.446,
+     "n_efec": 134.0,
+     "MAE": 28939.388,
+     "RMSE": 55179.034,
+     "MAPE": 54.362,
+     "LjungBox_p": 0.997
+    },
+    "Suav. exponencial simple": {
+     "AIC": -377.246,
+     "BIC": -371.265,
+     "n_efec": 147.0,
+     "MAE": 46681.063,
+     "RMSE": 55571.022,
+     "MAPE": 46.971,
+     "LjungBox_p": NaN
+    },
+    "SARIMA(2,1,0)(1,1,0,12)": {
+     "AIC": -5.007,
+     "BIC": 6.584,
+     "n_efec": 134.0,
+     "MAE": 28653.061,
+     "RMSE": 57201.184,
+     "MAPE": 62.973,
+     "LjungBox_p": 0.998
+    },
+    "Seasonal naive": {
+     "AIC": NaN,
+     "BIC": NaN,
+     "n_efec": 147.0,
+     "MAE": 41032.413,
+     "RMSE": 58176.718,
+     "MAPE": 70.43,
+     "LjungBox_p": NaN
+    }
+   },
+   "mejor_rmse": "SARIMA(1,1,1)(0,1,1,12)",
+   "mejor_aic": "SARIMA(1,1,1)(1,1,1,12)",
+   "residuos": {
+    "modelo": "SARIMA(1,1,1)(1,1,1,12)",
+    "ljungbox12_p": 0.9969,
+    "ljungbox24_p": 1.0,
+    "jarquebera_p": 0.0
+   }
+  },
+  "País: Estados Unidos de América": {
+   "nombre": "País: Estados Unidos de América",
+   "fuerza_tendencia": 0.821,
+   "fuerza_estacional": 0.929,
+   "fuerza_tendencia_full": 0.103,
+   "fuerza_estacional_full": 0.008,
+   "varianza": {
+    "corr_media_sd": 0.904,
+    "pendiente_log": 0.965,
+    "lambda_boxcox": -0.034
+   },
+   "transformacion": "log(1+x)",
+   "adf": [
+    {
+     "serie": "original",
+     "estadistico": -1.822,
+     "p_valor": 0.3698,
+     "rezagos": 13,
+     "crit_5%": -2.876,
+     "estacionaria": "no"
+    },
+    {
+     "serie": "log(1+x)",
+     "estadistico": -2.983,
+     "p_valor": 0.0365,
+     "rezagos": 10,
+     "crit_5%": -2.876,
+     "estacionaria": "sí"
+    },
+    {
+     "serie": "log + 1 dif. regular",
+     "estadistico": -6.825,
+     "p_valor": 0.0,
+     "rezagos": 9,
+     "crit_5%": -2.876,
+     "estacionaria": "sí"
+    },
+    {
+     "serie": "log + 1 reg. + 1 estacional",
+     "estadistico": -5.833,
+     "p_valor": 0.0,
+     "rezagos": 12,
+     "crit_5%": -2.877,
+     "estacionaria": "sí"
+    }
+   ],
+   "kpss": [
+    {
+     "serie": "log(1+x)",
+     "estadistico": 0.109,
+     "p_valor": 0.1,
+     "crit_5%": 0.463,
+     "estacionaria": "sí"
+    },
+    {
+     "serie": "log + 1 dif. regular",
+     "estadistico": 0.017,
+     "p_valor": 0.1,
+     "crit_5%": 0.463,
+     "estacionaria": "sí"
+    },
+    {
+     "serie": "log + 1 reg. + 1 estacional",
+     "estadistico": 0.015,
+     "p_valor": 0.1,
+     "crit_5%": 0.463,
+     "estacionaria": "sí"
+    }
+   ],
+   "d": 0,
+   "D": 1,
+   "comparacion": {
+    "Suav. exponencial simple": {
+     "AIC": 20.072,
+     "BIC": 26.053,
+     "n_efec": 147.0,
+     "MAE": 25107.905,
+     "RMSE": 28945.766,
+     "MAPE": 49.92,
+     "LjungBox_p": NaN
+    },
+    "Holt-Winters": {
+     "AIC": 25.238,
+     "BIC": 73.085,
+     "n_efec": 147.0,
+     "MAE": 34186.883,
+     "RMSE": 37632.323,
+     "MAPE": 69.37,
+     "LjungBox_p": NaN
+    },
+    "SARIMA(1,1,1)(0,1,1,12)": {
+     "AIC": 407.82,
+     "BIC": 419.412,
+     "n_efec": 134.0,
+     "MAE": 32870.745,
+     "RMSE": 37757.42,
+     "MAPE": 71.225,
+     "LjungBox_p": 0.002
+    },
+    "SARIMA(0,1,1)(0,1,1,12) (aerolínea)": {
+     "AIC": 406.337,
+     "BIC": 415.03,
+     "n_efec": 134.0,
+     "MAE": 36107.747,
+     "RMSE": 39927.362,
+     "MAPE": 77.417,
+     "LjungBox_p": 0.002
+    },
+    "SARIMA(2,0,0)(1,1,0,12)": {
+     "AIC": 398.899,
+     "BIC": 410.52,
+     "n_efec": 135.0,
+     "MAE": 39322.816,
+     "RMSE": 42727.299,
+     "MAPE": 83.313,
+     "LjungBox_p": 0.0
+    },
+    "SARIMA(1,0,1)(1,1,1,12)": {
+     "AIC": 402.253,
+     "BIC": 416.779,
+     "n_efec": 135.0,
+     "MAE": 39573.364,
+     "RMSE": 42918.903,
+     "MAPE": 83.964,
+     "LjungBox_p": 0.0
+    },
+    "SARIMA(0,0,1)(0,1,1,12)": {
+     "AIC": 491.305,
+     "BIC": 500.021,
+     "n_efec": 135.0,
+     "MAE": 39911.727,
+     "RMSE": 43136.681,
+     "MAPE": 85.082,
+     "LjungBox_p": 0.0
+    },
+    "Seasonal naive": {
+     "AIC": NaN,
+     "BIC": NaN,
+     "n_efec": 147.0,
+     "MAE": 41162.032,
+     "RMSE": 44189.442,
+     "MAPE": 88.193,
+     "LjungBox_p": NaN
+    }
+   },
+   "mejor_rmse": "Suav. exponencial simple",
+   "mejor_aic": "SARIMA(2,0,0)(1,1,0,12)",
+   "residuos": {
+    "modelo": "SARIMA(2,0,0)(1,1,0,12)",
+    "ljungbox12_p": 0.0,
+    "ljungbox24_p": 0.0,
+    "jarquebera_p": 0.0
+   }
+  },
+  "Vía: Aérea": {
+   "nombre": "Vía: Aérea",
+   "fuerza_tendencia": 0.926,
+   "fuerza_estacional": 0.875,
+   "fuerza_tendencia_full": 0.297,
+   "fuerza_estacional_full": 0.0,
+   "varianza": {
+    "corr_media_sd": 0.873,
+    "pendiente_log": 0.825,
+    "lambda_boxcox": -0.514
+   },
+   "transformacion": "log(1+x)",
+   "adf": [
+    {
+     "serie": "original",
+     "estadistico": -3.195,
+     "p_valor": 0.0203,
+     "rezagos": 14,
+     "crit_5%": -2.876,
+     "estacionaria": "sí"
+    },
+    {
+     "serie": "log(1+x)",
+     "estadistico": -3.316,
+     "p_valor": 0.0142,
+     "rezagos": 7,
+     "crit_5%": -2.876,
+     "estacionaria": "sí"
+    },
+    {
+     "serie": "log + 1 dif. regular",
+     "estadistico": -7.674,
+     "p_valor": 0.0,
+     "rezagos": 6,
+     "crit_5%": -2.876,
+     "estacionaria": "sí"
+    },
+    {
+     "serie": "log + 1 reg. + 1 estacional",
+     "estadistico": -7.762,
+     "p_valor": 0.0,
+     "rezagos": 11,
+     "crit_5%": -2.877,
+     "estacionaria": "sí"
+    }
+   ],
+   "kpss": [
+    {
+     "serie": "log(1+x)",
+     "estadistico": 0.089,
+     "p_valor": 0.1,
+     "crit_5%": 0.463,
+     "estacionaria": "sí"
+    },
+    {
+     "serie": "log + 1 dif. regular",
+     "estadistico": 0.016,
+     "p_valor": 0.1,
+     "crit_5%": 0.463,
+     "estacionaria": "sí"
+    },
+    {
+     "serie": "log + 1 reg. + 1 estacional",
+     "estadistico": 0.018,
+     "p_valor": 0.1,
+     "crit_5%": 0.463,
+     "estacionaria": "sí"
+    }
+   ],
+   "d": 0,
+   "D": 1,
+   "comparacion": {
+    "Suav. exponencial simple": {
+     "AIC": -216.176,
+     "BIC": -210.195,
+     "n_efec": 147.0,
+     "MAE": 36120.175,
+     "RMSE": 41378.71,
+     "MAPE": 35.633,
+     "LjungBox_p": NaN
+    },
+    "Holt-Winters": {
+     "AIC": -221.851,
+     "BIC": -174.004,
+     "n_efec": 147.0,
+     "MAE": 48059.66,
+     "RMSE": 52244.812,
+     "MAPE": 48.527,
+     "LjungBox_p": NaN
+    },
+    "SARIMA(0,0,1)(0,1,1,12)": {
+     "AIC": 280.608,
+     "BIC": 289.324,
+     "n_efec": 135.0,
+     "MAE": 56473.197,
+     "RMSE": 63845.462,
+     "MAPE": 59.966,
+     "LjungBox_p": 0.0
+    },
+    "SARIMA(1,0,1)(1,1,1,12)": {
+     "AIC": 180.356,
+     "BIC": 194.882,
+     "n_efec": 135.0,
+     "MAE": 58079.08,
+     "RMSE": 66119.102,
+     "MAPE": 60.731,
+     "LjungBox_p": 0.0
+    },
+    "SARIMA(0,1,1)(0,1,1,12) (aerolínea)": {
+     "AIC": 185.699,
+     "BIC": 194.392,
+     "n_efec": 134.0,
+     "MAE": 64529.55,
+     "RMSE": 69693.311,
+     "MAPE": 68.17,
+     "LjungBox_p": 0.966
+    },
+    "SARIMA(2,0,0)(1,1,0,12)": {
+     "AIC": 179.111,
+     "BIC": 190.732,
+     "n_efec": 135.0,
+     "MAE": 63300.608,
+     "RMSE": 70333.291,
+     "MAPE": 66.759,
+     "LjungBox_p": 0.0
+    },
+    "SARIMA(1,1,1)(0,1,1,12)": {
+     "AIC": 189.965,
+     "BIC": 201.557,
+     "n_efec": 134.0,
+     "MAE": 73805.479,
+     "RMSE": 77753.664,
+     "MAPE": 77.816,
+     "LjungBox_p": 0.944
+    },
+    "Seasonal naive": {
+     "AIC": NaN,
+     "BIC": NaN,
+     "n_efec": 147.0,
+     "MAE": 75107.286,
+     "RMSE": 79080.714,
+     "MAPE": 80.585,
+     "LjungBox_p": NaN
+    }
+   },
+   "mejor_rmse": "Suav. exponencial simple",
+   "mejor_aic": "SARIMA(2,0,0)(1,1,0,12)",
+   "residuos": {
+    "modelo": "SARIMA(2,0,0)(1,1,0,12)",
+    "ljungbox12_p": 0.0,
+    "ljungbox24_p": 0.0,
+    "jarquebera_p": 0.0
+   }
+  },
+  "Vía: Terrestre": {
+   "nombre": "Vía: Terrestre",
+   "fuerza_tendencia": 0.951,
+   "fuerza_estacional": 0.754,
+   "fuerza_tendencia_full": 0.627,
+   "fuerza_estacional_full": 0.044,
+   "varianza": {
+    "corr_media_sd": 0.932,
+    "pendiente_log": 1.097,
+    "lambda_boxcox": -0.312
+   },
+   "transformacion": "log(1+x)",
+   "adf": [
+    {
+     "serie": "original",
+     "estadistico": -2.769,
+     "p_valor": 0.0629,
+     "rezagos": 12,
+     "crit_5%": -2.876,
+     "estacionaria": "no"
+    },
+    {
+     "serie": "log(1+x)",
+     "estadistico": -3.052,
+     "p_valor": 0.0303,
+     "rezagos": 13,
+     "crit_5%": -2.876,
+     "estacionaria": "sí"
+    },
+    {
+     "serie": "log + 1 dif. regular",
+     "estadistico": -3.905,
+     "p_valor": 0.002,
+     "rezagos": 12,
+     "crit_5%": -2.876,
+     "estacionaria": "sí"
+    },
+    {
+     "serie": "log + 1 reg. + 1 estacional",
+     "estadistico": -6.482,
+     "p_valor": 0.0,
+     "rezagos": 11,
+     "crit_5%": -2.877,
+     "estacionaria": "sí"
+    }
+   ],
+   "kpss": [
+    {
+     "serie": "log(1+x)",
+     "estadistico": 0.201,
+     "p_valor": 0.1,
+     "crit_5%": 0.463,
+     "estacionaria": "sí"
+    },
+    {
+     "serie": "log + 1 dif. regular",
+     "estadistico": 0.035,
+     "p_valor": 0.1,
+     "crit_5%": 0.463,
+     "estacionaria": "sí"
+    },
+    {
+     "serie": "log + 1 reg. + 1 estacional",
+     "estadistico": 0.023,
+     "p_valor": 0.1,
+     "crit_5%": 0.463,
+     "estacionaria": "sí"
+    }
+   ],
+   "d": 0,
+   "D": 1,
+   "comparacion": {
+    "SARIMA(0,0,1)(0,1,1,12)": {
+     "AIC": 241.011,
+     "BIC": 249.727,
+     "n_efec": 135.0,
+     "MAE": 89911.432,
+     "RMSE": 99524.146,
+     "MAPE": 68.088,
+     "LjungBox_p": 0.0
+    },
+    "Suav. exponencial simple": {
+     "AIC": -281.805,
+     "BIC": -275.825,
+     "n_efec": 147.0,
+     "MAE": 140388.584,
+     "RMSE": 156274.926,
+     "MAPE": 71.75,
+     "LjungBox_p": NaN
+    },
+    "Holt-Winters": {
+     "AIC": -279.093,
+     "BIC": -231.246,
+     "n_efec": 147.0,
+     "MAE": 147977.068,
+     "RMSE": 164203.506,
+     "MAPE": 73.916,
+     "LjungBox_p": NaN
+    },
+    "SARIMA(1,0,1)(1,1,1,12)": {
+     "AIC": 130.773,
+     "BIC": 145.299,
+     "n_efec": 135.0,
+     "MAE": 153149.133,
+     "RMSE": 170471.08,
+     "MAPE": 77.189,
+     "LjungBox_p": 0.0
+    },
+    "Seasonal naive": {
+     "AIC": NaN,
+     "BIC": NaN,
+     "n_efec": 147.0,
+     "MAE": 159964.063,
+     "RMSE": 176605.274,
+     "MAPE": 83.478,
+     "LjungBox_p": NaN
+    },
+    "SARIMA(2,0,0)(1,1,0,12)": {
+     "AIC": 129.123,
+     "BIC": 140.744,
+     "n_efec": 135.0,
+     "MAE": 160447.874,
+     "RMSE": 177717.989,
+     "MAPE": 81.639,
+     "LjungBox_p": 0.0
+    },
+    "SARIMA(0,1,1)(0,1,1,12) (aerolínea)": {
+     "AIC": 129.992,
+     "BIC": 138.686,
+     "n_efec": 134.0,
+     "MAE": 175128.5,
+     "RMSE": 191095.144,
+     "MAPE": 91.777,
+     "LjungBox_p": 0.779
+    },
+    "SARIMA(1,1,1)(0,1,1,12)": {
+     "AIC": 131.897,
+     "BIC": 143.489,
+     "n_efec": 134.0,
+     "MAE": 175603.055,
+     "RMSE": 191472.787,
+     "MAPE": 92.296,
+     "LjungBox_p": 0.805
+    }
+   },
+   "mejor_rmse": "SARIMA(0,0,1)(0,1,1,12)",
+   "mejor_aic": "SARIMA(2,0,0)(1,1,0,12)",
+   "residuos": {
+    "modelo": "SARIMA(2,0,0)(1,1,0,12)",
+    "ljungbox12_p": 0.0,
+    "ljungbox24_p": 0.0,
+    "jarquebera_p": 0.0
+   }
+  },
+  "Vía: Marítima": {
+   "nombre": "Vía: Marítima",
+   "fuerza_tendencia": 0.0,
+   "fuerza_estacional": 0.24,
+   "fuerza_tendencia_full": 0.564,
+   "fuerza_estacional_full": 0.304,
+   "varianza": {
+    "corr_media_sd": 0.958,
+    "pendiente_log": 1.121,
+    "lambda_boxcox": 0.393
+   },
+   "transformacion": "log(1+x)",
+   "adf": [
+    {
+     "serie": "original",
+     "estadistico": -1.112,
+     "p_valor": 0.7101,
+     "rezagos": 13,
+     "crit_5%": -2.876,
+     "estacionaria": "no"
+    },
+    {
+     "serie": "log(1+x)",
+     "estadistico": -1.962,
+     "p_valor": 0.3033,
+     "rezagos": 13,
+     "crit_5%": -2.876,
+     "estacionaria": "no"
+    },
+    {
+     "serie": "log + 1 dif. regular",
+     "estadistico": -6.392,
+     "p_valor": 0.0,
+     "rezagos": 10,
+     "crit_5%": -2.876,
+     "estacionaria": "sí"
+    },
+    {
+     "serie": "log + 1 reg. + 1 estacional",
+     "estadistico": -5.523,
+     "p_valor": 0.0,
+     "rezagos": 15,
+     "crit_5%": -2.878,
+     "estacionaria": "sí"
+    }
+   ],
+   "kpss": [
+    {
+     "serie": "log(1+x)",
+     "estadistico": 0.979,
+     "p_valor": 0.01,
+     "crit_5%": 0.463,
+     "estacionaria": "no"
+    },
+    {
+     "serie": "log + 1 dif. regular",
+     "estadistico": 0.058,
+     "p_valor": 0.1,
+     "crit_5%": 0.463,
+     "estacionaria": "sí"
+    },
+    {
+     "serie": "log + 1 reg. + 1 estacional",
+     "estadistico": 0.034,
+     "p_valor": 0.1,
+     "crit_5%": 0.463,
+     "estacionaria": "sí"
+    }
+   ],
+   "d": 1,
+   "D": 0,
+   "comparacion": {
+    "Suav. exponencial simple": {
+     "AIC": 212.155,
+     "BIC": 218.136,
+     "n_efec": 147.0,
+     "MAE": 858.365,
+     "RMSE": 1731.93,
+     "MAPE": 100.0,
+     "LjungBox_p": NaN
+    },
+    "SARIMA(0,1,1)(0,0,1,12)": {
+     "AIC": 625.318,
+     "BIC": 634.269,
+     "n_efec": 146.0,
+     "MAE": 858.365,
+     "RMSE": 1731.93,
+     "MAPE": 100.0,
+     "LjungBox_p": 0.0
+    },
+    "SARIMA(1,1,1)(1,0,1,12)": {
+     "AIC": 609.942,
+     "BIC": 624.86,
+     "n_efec": 146.0,
+     "MAE": 858.365,
+     "RMSE": 1731.93,
+     "MAPE": 100.0,
+     "LjungBox_p": 0.0
+    },
+    "SARIMA(2,1,0)(1,0,0,12)": {
+     "AIC": 624.144,
+     "BIC": 636.078,
+     "n_efec": 146.0,
+     "MAE": 858.365,
+     "RMSE": 1731.93,
+     "MAPE": 100.0,
+     "LjungBox_p": 0.0
+    },
+    "SARIMA(0,1,1)(0,1,1,12) (aerolínea)": {
+     "AIC": 565.348,
+     "BIC": 574.041,
+     "n_efec": 134.0,
+     "MAE": 858.365,
+     "RMSE": 1731.93,
+     "MAPE": 100.0,
+     "LjungBox_p": 0.001
+    },
+    "SARIMA(1,1,1)(0,1,1,12)": {
+     "AIC": 567.071,
+     "BIC": 578.662,
+     "n_efec": 134.0,
+     "MAE": 858.365,
+     "RMSE": 1731.93,
+     "MAPE": 100.0,
+     "LjungBox_p": 0.001
+    },
+    "Holt-Winters": {
+     "AIC": 191.681,
+     "BIC": 239.527,
+     "n_efec": 147.0,
+     "MAE": 858.365,
+     "RMSE": 1731.93,
+     "MAPE": 100.0,
+     "LjungBox_p": NaN
+    },
+    "Seasonal naive": {
+     "AIC": NaN,
+     "BIC": NaN,
+     "n_efec": 147.0,
+     "MAE": 858.365,
+     "RMSE": 1731.93,
+     "MAPE": 100.0,
+     "LjungBox_p": NaN
+    }
+   },
+   "mejor_rmse": "Suav. exponencial simple",
+   "mejor_aic": "SARIMA(1,1,1)(1,0,1,12)",
+   "residuos": {
+    "modelo": "SARIMA(1,1,1)(1,0,1,12)",
+    "ljungbox12_p": 0.0001,
+    "ljungbox24_p": 0.0,
+    "jarquebera_p": 0.0
+   }
+  }
+ },
+ "comparativo": {
+  "Total de viajeros": {
+   "F_estacional": 0.836,
+   "F_tendencia": 0.958,
+   "TCAC_09_19_%": 8.74,
+   "CV_pre_%": 33.496,
+   "CV_full_%": 40.457,
+   "volatilidad_yoy": 0.096,
+   "volatilidad_yoy_full": 0.838,
+   "caida_2020_%": -73.012,
+   "piso_vs_media19_%": -97.497,
+   "rec_crudo_%": 76.709,
+   "rec_homog_%": 124.14
+  },
+  "País: El Salvador": {
+   "F_estacional": 0.677,
+   "F_tendencia": 0.92,
+   "TCAC_09_19_%": 12.084,
+   "CV_pre_%": 45.343,
+   "CV_full_%": 58.659,
+   "volatilidad_yoy": 0.197,
+   "volatilidad_yoy_full": 2.55,
+   "caida_2020_%": -74.881,
+   "piso_vs_media19_%": -100.0,
+   "rec_crudo_%": 126.772,
+   "rec_homog_%": 126.772
+  },
+  "País: Guatemala": {
+   "F_estacional": 0.861,
+   "F_tendencia": 0.971,
+   "TCAC_09_19_%": 10.362,
+   "CV_pre_%": 39.229,
+   "CV_full_%": 73.291,
+   "volatilidad_yoy": 0.114,
+   "volatilidad_yoy_full": 2.908,
+   "caida_2020_%": -70.245,
+   "piso_vs_media19_%": -93.448,
+   "rec_crudo_%": 0.0,
+   "rec_homog_%": NaN
+  },
+  "País: Estados Unidos de América": {
+   "F_estacional": 0.929,
+   "F_tendencia": 0.821,
+   "TCAC_09_19_%": 4.679,
+   "CV_pre_%": 30.013,
+   "CV_full_%": 46.252,
+   "volatilidad_yoy": 0.099,
+   "volatilidad_yoy_full": 2.363,
+   "caida_2020_%": -73.665,
+   "piso_vs_media19_%": -100.0,
+   "rec_crudo_%": 146.132,
+   "rec_homog_%": 146.132
+  },
+  "Vía: Aérea": {
+   "F_estacional": 0.875,
+   "F_tendencia": 0.926,
+   "TCAC_09_19_%": 4.714,
+   "CV_pre_%": 21.624,
+   "CV_full_%": 30.537,
+   "volatilidad_yoy": 0.074,
+   "volatilidad_yoy_full": 1.124,
+   "caida_2020_%": -72.295,
+   "piso_vs_media19_%": -99.604,
+   "rec_crudo_%": 80.195,
+   "rec_homog_%": 147.618
+  },
+  "Vía: Terrestre": {
+   "F_estacional": 0.754,
+   "F_tendencia": 0.951,
+   "TCAC_09_19_%": 11.898,
+   "CV_pre_%": 43.089,
+   "CV_full_%": 49.259,
+   "volatilidad_yoy": 0.144,
+   "volatilidad_yoy_full": 0.894,
+   "caida_2020_%": -73.575,
+   "piso_vs_media19_%": -97.769,
+   "rec_crudo_%": 78.065,
+   "rec_homog_%": 122.421
+  },
+  "Vía: Marítima": {
+   "F_estacional": 0.24,
+   "F_tendencia": 0.0,
+   "TCAC_09_19_%": 3.391,
+   "CV_pre_%": 78.953,
+   "CV_full_%": 114.654,
+   "volatilidad_yoy": 1.795,
+   "volatilidad_yoy_full": 3.02,
+   "caida_2020_%": -67.892,
+   "piso_vs_media19_%": -100.0,
+   "rec_crudo_%": 5.31,
+   "rec_homog_%": 5.31
+  }
+ },
+ "respuestas_5a": {
+  "Países de residencia": {
+   "mayor_estacionalidad": [
+    "País: Estados Unidos de América",
+    0.929
+   ],
+   "mayor_tendencia": [
+    "País: El Salvador",
+    12.08
+   ],
+   "mayor_volatilidad": [
+    "País: El Salvador",
+    0.197
+   ],
+   "mas_afectada_pandemia": [
+    "País: El Salvador",
+    -74.9
+   ],
+   "peor_recuperada": [
+    "País: El Salvador",
+    126.8
+   ],
+   "peor_recuperada_crudo": [
+    "País: Guatemala",
+    0.0
+   ]
+  },
+  "Vías de ingreso": {
+   "mayor_estacionalidad": [
+    "Vía: Aérea",
+    0.875
+   ],
+   "mayor_tendencia": [
+    "Vía: Terrestre",
+    11.9
+   ],
+   "mayor_volatilidad": [
+    "Vía: Marítima",
+    1.795
+   ],
+   "mas_afectada_pandemia": [
+    "Vía: Terrestre",
+    -73.6
+   ],
+   "peor_recuperada": [
+    "Vía: Marítima",
+    5.3
+   ],
+   "peor_recuperada_crudo": [
+    "Vía: Marítima",
+    5.3
+   ]
+  }
+ },
+ "control_postcovid": {
+  "Total de viajeros": {
+   "mejor_postcovid": "SARIMA(1,0,1)(1,0,1,12)",
+   "RMSE_postcovid": 22553,
+   "MAPE_postcovid": 7.1,
+   "mejor_70_30": "SARIMA(0,0,1)(0,1,1,12)",
+   "MAPE_70_30": 42.0
+  },
+  "País: El Salvador": {
+   "mejor_postcovid": "Seasonal naive",
+   "RMSE_postcovid": 19522,
+   "MAPE_postcovid": 10.5,
+   "mejor_70_30": "Suav. exponencial simple",
+   "MAPE_70_30": 74.3
+  },
+  "País: Guatemala": {
+   "mejor_postcovid": "Holt-Winters",
+   "RMSE_postcovid": 0,
+   "MAPE_postcovid": NaN,
+   "mejor_70_30": "SARIMA(1,1,1)(0,1,1,12)",
+   "MAPE_70_30": 60.6
+  },
+  "País: Estados Unidos de América": {
+   "mejor_postcovid": "Seasonal naive",
+   "RMSE_postcovid": 4809,
+   "MAPE_postcovid": 7.0,
+   "mejor_70_30": "Suav. exponencial simple",
+   "MAPE_70_30": 49.9
+  },
+  "Vía: Aérea": {
+   "mejor_postcovid": "SARIMA(1,0,0)(1,0,0,12)",
+   "RMSE_postcovid": 9705,
+   "MAPE_postcovid": 8.3,
+   "mejor_70_30": "Suav. exponencial simple",
+   "MAPE_70_30": 35.6
+  },
+  "Vía: Terrestre": {
+   "mejor_postcovid": "Seasonal naive",
+   "RMSE_postcovid": 27473,
+   "MAPE_postcovid": 10.5,
+   "mejor_70_30": "SARIMA(0,0,1)(0,1,1,12)",
+   "MAPE_70_30": 68.1
+  },
+  "Vía: Marítima": {
+   "mejor_postcovid": "Seasonal naive",
+   "RMSE_postcovid": 116,
+   "MAPE_postcovid": 11.6,
+   "mejor_70_30": "Suav. exponencial simple",
+   "MAPE_70_30": 100.0
+  }
+ },
+ "control_postcovid_detalle": {
+  "Total de viajeros": {
+   "SARIMA(1,0,1)(1,0,1,12)": {
+    "AIC": 12.91,
+    "BIC": 21.6,
+    "MAE": 20163.33,
+    "RMSE": 22553.05,
+    "MAPE": 7.12,
+    "LjungBox_p": 0.82,
+    "n_efec": 42.0
+   },
+   "Seasonal naive": {
+    "AIC": NaN,
+    "BIC": NaN,
+    "MAE": 18421.72,
+    "RMSE": 24829.29,
+    "MAPE": 6.25,
+    "LjungBox_p": NaN,
+    "n_efec": 42.0
+   },
+   "SARIMA(1,0,0)(1,0,0,12)": {
+    "AIC": 10.15,
+    "BIC": 15.37,
+    "MAE": 52135.94,
+    "RMSE": 57468.48,
+    "MAPE": 18.76,
+    "LjungBox_p": 0.78,
+    "n_efec": 42.0
+   },
+   "Holt-Winters": {
+    "AIC": -120.87,
+    "BIC": -93.07,
+    "MAE": 67109.37,
+    "RMSE": 86560.21,
+    "MAPE": 23.41,
+    "LjungBox_p": NaN,
+    "n_efec": 42.0
+   },
+   "Suav. exponencial simple": {
+    "AIC": -114.15,
+    "BIC": -110.68,
+    "MAE": 81770.73,
+    "RMSE": 87191.4,
+    "MAPE": 29.46,
+    "LjungBox_p": NaN,
+    "n_efec": 42.0
+   },
+   "SARIMA(0,0,1)(0,0,1,12)": {
+    "AIC": 251.88,
+    "BIC": 257.09,
+    "MAE": 292020.98,
+    "RMSE": 294150.04,
+    "MAPE": 99.6,
+    "LjungBox_p": 0.0,
+    "n_efec": 42.0
+   }
+  },
+  "País: El Salvador": {
+   "Seasonal naive": {
+    "AIC": NaN,
+    "BIC": NaN,
+    "MAE": 13378.78,
+    "RMSE": 19522.25,
+    "MAPE": 10.55,
+    "LjungBox_p": NaN,
+    "n_efec": 42.0
+   },
+   "SARIMA(1,0,0)(1,0,0,12)": {
+    "AIC": 50.38,
+    "BIC": 55.6,
+    "MAE": 39478.75,
+    "RMSE": 42776.85,
+    "MAPE": 31.69,
+    "LjungBox_p": 0.14,
+    "n_efec": 42.0
+   },
+   "Suav. exponencial simple": {
+    "AIC": -85.0,
+    "BIC": -81.52,
+    "MAE": 45609.27,
+    "RMSE": 49568.8,
+    "MAPE": 36.83,
+    "LjungBox_p": NaN,
+    "n_efec": 42.0
+   },
+   "SARIMA(1,0,1)(1,0,1,12)": {
+    "AIC": 45.03,
+    "BIC": 53.72,
+    "MAE": 50530.46,
+    "RMSE": 56428.94,
+    "MAPE": 40.79,
+    "LjungBox_p": 0.8,
+    "n_efec": 42.0
+   },
+   "SARIMA(0,0,1)(0,0,1,12)": {
+    "AIC": 245.19,
+    "BIC": 250.4,
+    "MAE": 134958.42,
+    "RMSE": 136825.05,
+    "MAPE": 99.6,
+    "LjungBox_p": 0.0,
+    "n_efec": 42.0
+   },
+   "Holt-Winters": {
+    "AIC": -83.04,
+    "BIC": -55.24,
+    "MAE": 134781.28,
+    "RMSE": 163539.52,
+    "MAPE": 106.83,
+    "LjungBox_p": NaN,
+    "n_efec": 42.0
+   }
+  },
+  "País: Guatemala": {
+   "Holt-Winters": {
+    "AIC": 67.53,
+    "BIC": 95.33,
+    "MAE": 0.0,
+    "RMSE": 0.0,
+    "MAPE": NaN,
+    "LjungBox_p": NaN,
+    "n_efec": 42.0
+   },
+   "Seasonal naive": {
+    "AIC": NaN,
+    "BIC": NaN,
+    "MAE": 0.0,
+    "RMSE": 0.0,
+    "MAPE": NaN,
+    "LjungBox_p": NaN,
+    "n_efec": 42.0
+   },
+   "Suav. exponencial simple": {
+    "AIC": 57.27,
+    "BIC": 60.75,
+    "MAE": 0.0,
+    "RMSE": 0.0,
+    "MAPE": NaN,
+    "LjungBox_p": NaN,
+    "n_efec": 42.0
+   },
+   "SARIMA(1,1,0)(1,0,0,12)": {
+    "AIC": 175.34,
+    "BIC": 180.48,
+    "MAE": 0.0,
+    "RMSE": 0.0,
+    "MAPE": NaN,
+    "LjungBox_p": 1.0,
+    "n_efec": 41.0
+   },
+   "SARIMA(1,1,1)(1,0,1,12)": {
+    "AIC": 179.34,
+    "BIC": 187.91,
+    "MAE": 0.0,
+    "RMSE": 0.0,
+    "MAPE": NaN,
+    "LjungBox_p": 1.0,
+    "n_efec": 41.0
+   },
+   "SARIMA(0,1,1)(0,0,1,12)": {
+    "AIC": 175.34,
+    "BIC": 180.48,
+    "MAE": 0.0,
+    "RMSE": 0.0,
+    "MAPE": NaN,
+    "LjungBox_p": 1.0,
+    "n_efec": 41.0
+   }
+  },
+  "País: Estados Unidos de América": {
+   "Seasonal naive": {
+    "AIC": NaN,
+    "BIC": NaN,
+    "MAE": 4085.56,
+    "RMSE": 4808.7,
+    "MAPE": 6.98,
+    "LjungBox_p": NaN,
+    "n_efec": 42.0
+   },
+   "SARIMA(1,1,0)(1,0,0,12)": {
+    "AIC": 0.05,
+    "BIC": 5.19,
+    "MAE": 4961.81,
+    "RMSE": 6032.64,
+    "MAPE": 9.02,
+    "LjungBox_p": 0.37,
+    "n_efec": 41.0
+   },
+   "SARIMA(0,1,1)(0,0,1,12)": {
+    "AIC": 14.36,
+    "BIC": 19.5,
+    "MAE": 7019.14,
+    "RMSE": 9376.47,
+    "MAPE": 12.72,
+    "LjungBox_p": 0.58,
+    "n_efec": 41.0
+   },
+   "SARIMA(1,1,1)(1,0,1,12)": {
+    "AIC": -3.71,
+    "BIC": 4.86,
+    "MAE": 12215.38,
+    "RMSE": 14439.27,
+    "MAPE": 20.96,
+    "LjungBox_p": 0.9,
+    "n_efec": 41.0
+   },
+   "Suav. exponencial simple": {
+    "AIC": -93.34,
+    "BIC": -89.86,
+    "MAE": 15362.67,
+    "RMSE": 17890.24,
+    "MAPE": 30.87,
+    "LjungBox_p": NaN,
+    "n_efec": 42.0
+   },
+   "Holt-Winters": {
+    "AIC": -146.73,
+    "BIC": -118.93,
+    "MAE": 15838.52,
+    "RMSE": 19952.47,
+    "MAPE": 26.4,
+    "LjungBox_p": NaN,
+    "n_efec": 42.0
+   }
+  },
+  "Vía: Aérea": {
+   "SARIMA(1,0,0)(1,0,0,12)": {
+    "AIC": -4.67,
+    "BIC": 0.55,
+    "MAE": 8247.6,
+    "RMSE": 9704.76,
+    "MAPE": 8.3,
+    "LjungBox_p": 0.73,
+    "n_efec": 42.0
+   },
+   "Seasonal naive": {
+    "AIC": NaN,
+    "BIC": NaN,
+    "MAE": 7981.61,
+    "RMSE": 9704.85,
+    "MAPE": 7.45,
+    "LjungBox_p": NaN,
+    "n_efec": 42.0
+   },
+   "Holt-Winters": {
+    "AIC": -148.36,
+    "BIC": -120.55,
+    "MAE": 14099.22,
+    "RMSE": 16183.31,
+    "MAPE": 13.52,
+    "LjungBox_p": NaN,
+    "n_efec": 42.0
+   },
+   "Suav. exponencial simple": {
+    "AIC": -123.48,
+    "BIC": -120.01,
+    "MAE": 14927.61,
+    "RMSE": 17876.95,
+    "MAPE": 16.16,
+    "LjungBox_p": NaN,
+    "n_efec": 42.0
+   },
+   "SARIMA(1,0,1)(1,0,1,12)": {
+    "AIC": -7.37,
+    "BIC": 1.32,
+    "MAE": 17113.27,
+    "RMSE": 19226.82,
+    "MAPE": 16.2,
+    "LjungBox_p": 0.73,
+    "n_efec": 42.0
+   },
+   "SARIMA(0,0,1)(0,0,1,12)": {
+    "AIC": 244.64,
+    "BIC": 249.85,
+    "MAE": 101257.92,
+    "RMSE": 102234.96,
+    "MAPE": 99.43,
+    "LjungBox_p": 0.0,
+    "n_efec": 42.0
+   }
+  },
+  "Vía: Terrestre": {
+   "Seasonal naive": {
+    "AIC": NaN,
+    "BIC": NaN,
+    "MAE": 19529.78,
+    "RMSE": 27473.45,
+    "MAPE": 10.51,
+    "LjungBox_p": NaN,
+    "n_efec": 42.0
+   },
+   "SARIMA(1,0,1)(1,0,1,12)": {
+    "AIC": 40.55,
+    "BIC": 49.24,
+    "MAE": 48419.23,
+    "RMSE": 53668.05,
+    "MAPE": 27.48,
+    "LjungBox_p": 0.52,
+    "n_efec": 42.0
+   },
+   "SARIMA(1,0,0)(1,0,0,12)": {
+    "AIC": 39.42,
+    "BIC": 44.63,
+    "MAE": 50008.48,
+    "RMSE": 54500.82,
+    "MAPE": 28.14,
+    "LjungBox_p": 0.29,
+    "n_efec": 42.0
+   },
+   "Suav. exponencial simple": {
+    "AIC": -91.36,
+    "BIC": -87.88,
+    "MAE": 64314.0,
+    "RMSE": 69068.45,
+    "MAPE": 36.2,
+    "LjungBox_p": NaN,
+    "n_efec": 42.0
+   },
+   "Holt-Winters": {
+    "AIC": -85.26,
+    "BIC": -57.46,
+    "MAE": 122036.47,
+    "RMSE": 148474.99,
+    "MAPE": 67.22,
+    "LjungBox_p": NaN,
+    "n_efec": 42.0
+   },
+   "SARIMA(0,0,1)(0,0,1,12)": {
+    "AIC": 249.01,
+    "BIC": 254.22,
+    "MAE": 189865.38,
+    "RMSE": 191863.23,
+    "MAPE": 99.54,
+    "LjungBox_p": 0.0,
+    "n_efec": 42.0
+   }
+  },
+  "Vía: Marítima": {
+   "Seasonal naive": {
+    "AIC": NaN,
+    "BIC": NaN,
+    "MAE": 77.67,
+    "RMSE": 115.58,
+    "MAPE": 11.59,
+    "LjungBox_p": NaN,
+    "n_efec": 42.0
+   },
+   "Suav. exponencial simple": {
+    "AIC": 64.83,
+    "BIC": 68.3,
+    "MAE": 97.39,
+    "RMSE": 130.73,
+    "MAPE": 18.31,
+    "LjungBox_p": NaN,
+    "n_efec": 42.0
+   },
+   "Holt-Winters": {
+    "AIC": 76.11,
+    "BIC": 103.91,
+    "MAE": 418.76,
+    "RMSE": 446.04,
+    "MAPE": 71.24,
+    "LjungBox_p": NaN,
+    "n_efec": 42.0
+   },
+   "SARIMA(1,0,0)(1,0,0,12)": {
+    "AIC": 187.11,
+    "BIC": 192.32,
+    "MAE": 527.84,
+    "RMSE": 551.28,
+    "MAPE": 86.93,
+    "LjungBox_p": 0.35,
+    "n_efec": 42.0
+   },
+   "SARIMA(1,0,1)(1,0,1,12)": {
+    "AIC": 190.08,
+    "BIC": 198.77,
+    "MAE": 548.25,
+    "RMSE": 564.9,
+    "MAPE": 90.5,
+    "LjungBox_p": 0.36,
+    "n_efec": 42.0
+   },
+   "SARIMA(0,0,1)(0,0,1,12)": {
+    "AIC": 222.68,
+    "BIC": 227.89,
+    "MAE": 591.2,
+    "RMSE": 605.46,
+    "MAPE": 97.38,
+    "LjungBox_p": 0.0,
+    "n_efec": 42.0
+   }
+  }
+ },
+ "resumen_final": {
+  "Total de viajeros": {
+   "mejor modelo (RMSE test)": "SARIMA(0,0,1)(0,1,1,12)",
+   "MAPE %": 42.0,
+   "RMSE": 112601,
+   "mejor SARIMA (AIC)": "SARIMA(2,0,0)(1,1,0,12)",
+   "d": 0,
+   "D": 1
+  },
+  "País: El Salvador": {
+   "mejor modelo (RMSE test)": "Suav. exponencial simple",
+   "MAPE %": 74.3,
+   "RMSE": 104524,
+   "mejor SARIMA (AIC)": "SARIMA(2,0,0)(1,1,0,12)",
+   "d": 0,
+   "D": 1
+  },
+  "País: Guatemala": {
+   "mejor modelo (RMSE test)": "SARIMA(1,1,1)(0,1,1,12)",
+   "MAPE %": 60.6,
+   "RMSE": 53766,
+   "mejor SARIMA (AIC)": "SARIMA(1,1,1)(1,1,1,12)",
+   "d": 1,
+   "D": 1
+  },
+  "País: Estados Unidos de América": {
+   "mejor modelo (RMSE test)": "Suav. exponencial simple",
+   "MAPE %": 49.9,
+   "RMSE": 28946,
+   "mejor SARIMA (AIC)": "SARIMA(2,0,0)(1,1,0,12)",
+   "d": 0,
+   "D": 1
+  },
+  "Vía: Aérea": {
+   "mejor modelo (RMSE test)": "Suav. exponencial simple",
+   "MAPE %": 35.6,
+   "RMSE": 41379,
+   "mejor SARIMA (AIC)": "SARIMA(2,0,0)(1,1,0,12)",
+   "d": 0,
+   "D": 1
+  },
+  "Vía: Terrestre": {
+   "mejor modelo (RMSE test)": "SARIMA(0,0,1)(0,1,1,12)",
+   "MAPE %": 68.1,
+   "RMSE": 99524,
+   "mejor SARIMA (AIC)": "SARIMA(2,0,0)(1,1,0,12)",
+   "d": 0,
+   "D": 1
+  },
+  "Vía: Marítima": {
+   "mejor modelo (RMSE test)": "Suav. exponencial simple",
+   "MAPE %": 100.0,
+   "RMSE": 1732,
+   "mejor SARIMA (AIC)": "SARIMA(1,1,1)(1,0,1,12)",
+   "d": 1,
+   "D": 0
+  }
+ }
+}

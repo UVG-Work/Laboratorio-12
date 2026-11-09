@@ -107,28 +107,47 @@ Las tres tareas deben ejecutarse por la misma persona, en el mismo equipo y con 
 
 Los valores de la última columna confirman que el informe responde correctamente.
 
-**Resultados observados (8 de noviembre de 2026).** Un integrante del equipo (skemono) ejecutó las tres tareas en ambas versiones, en el mismo equipo Windows 11, partiendo de la vista inicial de cada una. Midió el tiempo con cronómetro hasta leer el resultado. El detalle está en `docs/registro_pruebas.csv`.
+**Resultados observados (8 de noviembre de 2026).** June Herrera Watanabe ejecutó las tres tareas en ambas versiones, en el mismo equipo Windows 11, partiendo de la vista inicial de cada una. Midió el tiempo con cronómetro hasta leer el resultado. El detalle está en `docs/registro_pruebas.csv` y las capturas de Streamlit son las 20 a 22.
 
-| Tarea | Power BI: clics | Power BI: segundos | Streamlit: clics | Streamlit: segundos | Dificultades |
-|---|---:|---:|---:|---:|---|
-| A. Recuperación de mercados | 2 | 11 | 2 | 13 | Ninguna reportada |
-| B. General → detalle → regreso | 3 | 8 | 1 | 9 | Ninguna reportada |
-| C. Tres modelos | 1 | 3 | 3 | 14 | Ninguna reportada |
-| **Total** | **6** | **22** | **6** | **36** | |
+| Tarea | Power BI: clics / s | Resultado en Power BI | Streamlit: clics / s | Resultado en Streamlit |
+|---|---|---|---|---|
+| A. Recuperación de mercados | 2 / 11 | EE. UU. 146.1; El Salvador 126.8 | 2 / 13 | EE. UU. 146 %; El Salvador 127 % (captura 20) |
+| B. General → detalle → regreso | 3 / 8 | Mayo 2020: 9,779 | 1 / 9 | Abril-agosto casi nulos; el valor de mayo no se lee (captura 21) |
+| C. Tres modelos | 1 / 3 | 6.25; 23.41; 29.46 | 3 / 14 | 6.2; 23.4; 29.5 (captura 22) |
+| **Total** | **6 / 22** | | **6 / 36** | |
 
-Las dos versiones necesitaron el mismo número de clics en total (6). Power BI fue 14 s más rápido (22 s frente a 36 s), y la mayor diferencia está en la tarea C: el botón «4 · Pronósticos» abre ya en Total y Post-pandemia. Streamlit llegó al mes mínimo con menos clics (1 frente a 3), porque Power BI exige seleccionar el año y bajar de nivel en V1. **Limitaciones:** hay un solo evaluador y una sola ejecución por tarea, y el evaluador ya conocía ambas versiones. Por eso los tiempos indican una tendencia, no una diferencia concluyente de usabilidad para usuarios nuevos.
+Las dos versiones necesitaron el mismo número de clics en total (6). Power BI fue 14 s más rápido (22 s frente a 36 s), y la mayor diferencia está en la tarea C: el botón «4 · Pronósticos» abre ya en Total y Post-pandemia.
+
+En la tarea B, Streamlit llegó al detalle mensual con menos clics (1 frente a 3), pero no permitió responder. Su gráfica de 2020 está en miles de viajeros, y de abril a agosto las barras son casi nulas, así que no se distingue cuál es el mínimo ni su valor exacto. Power BI muestra el valor de mayo (9,779) en la información sobre herramientas de V1.
+
+En las tareas A y C, ambas versiones dieron los mismos valores, salvo por el redondeo.
+
+**Limitaciones:** hay un solo evaluador y una sola ejecución por tarea, y la evaluadora ya conocía ambas versiones. Por eso los tiempos indican una tendencia, no una diferencia concluyente de usabilidad para usuarios nuevos.
 
 Las pruebas 70/30 y post-pandemia tienen horizontes distintos: 63 y 18 meses respectivamente. El MAPE de una prueba no debe leerse como comparable directamente con el de la otra.
 
 ## 9. Consistencia y discrepancias
 
-| Indicador y regla | Laboratorio 10 / datos fuente | CSV para Power BI | Visual de Power BI | Diferencia |
-|---|---:|---:|---:|---:|
-| Total 2025, serie Total, suma de los 12 meses | 3,596,061 | 3,596,061 | 3,596,061 (V3, información sobre herramientas) | 0 |
-| Nivel Total 2025/2019, cociente de sumas anuales | 76.71 % | 76.71 % | 76.7 (V7) | 0 pp (redondeo a un decimal) |
-| MAPE Ingenuo estacional, Total, post-pandemia | 6.25 % | 6.25 % | 6.25 (V8) | 0 pp |
+Se verificaron dos indicadores en las dos interfaces con la misma selección (capturas 12, 13, 20 y 22):
 
-Los valores de la columna «Visual de Power BI» se leyeron en el informe abierto en Desktop. Falta leer los mismos tres indicadores en la aplicación Streamlit con las mismas selecciones para cerrar la comparación entre versiones. El 76.71 % del Total y el 124.14 % de No residentes difieren porque la cobertura de residentes guatemaltecos retornados cambia desde 2023. La serie marítima también cambia de cobertura, por lo que su cociente 2025/2019 no debe interpretarse automáticamente como caída real de demanda.
+| Indicador y regla | Datos fuente (resultados.json / CSV) | Streamlit (Lab 10) | Power BI | Diferencia |
+|---|---:|---:|---:|---|
+| Nivel 2025/2019 de Estados Unidos, cociente de sumas anuales | 146.13 % | 146 % (V7) | 146.1 (V7) | Ninguna; solo cambia el redondeo |
+| MAPE del Ingenuo estacional, Total, post-pandemia | 6.25 % | 6.2 (tabla comparativa) | 6.25 (V8) | Ninguna; solo cambia el redondeo |
+
+Otras cifras de control que se revisaron solo en Power BI:
+- Total 2025: 3,596,061 en V3.
+- Nivel del Total 2025/2019: 76.7 en V7.
+
+Ambas coinciden con los CSV.
+
+**Discrepancia encontrada: vías aérea y terrestre en V7.** Streamlit muestra Aérea 148 % y Terrestre 122 %, mientras Power BI muestra 80.2 y 78.1. La causa es la regla de cálculo, no los datos:
+- Streamlit usa `rec_homog_%` de `resultados.json`, que descuenta a los guatemaltecos retornados también en 2019.
+- Power BI calcula el cociente crudo de las series tal como están en los CSV (`rec_crudo_%`: 80.20 % y 78.07 %).
+
+Como la fuente dejó de registrar a los retornados desde 2023, el valor homogéneo es más comparable entre años. El crudo, en cambio, coincide con lo que suman las series. Estados Unidos, El Salvador y Marítima no tienen esta diferencia, porque sus dos cifras son iguales.
+
+Por el mismo motivo, el Total 2025/2019 da 76.71 % en crudo y 124.14 % en No residentes. Para la lectura de directivos, conviene que V7 de Power BI use la misma regla homogénea que el Laboratorio 10 o que indique en el título que es el cociente crudo. La serie marítima también cambia de cobertura, por lo que su cociente 2025/2019 no debe interpretarse automáticamente como caída real de demanda.
 
 ## 10. Recomendaciones por escenario
 
@@ -138,11 +157,12 @@ Los valores de la columna «Visual de Power BI» se leyeron en el informe abiert
 | Exploración con controles y visualizaciones muy personalizados | Streamlit + Plotly | El código existente conserva el mapa de calor y los gráficos especializados. Requiere mantenimiento de Python y alojamiento. |
 | Consulta externa en navegador sin instalar software | Streamlit + Plotly | Community Cloud puede servir para un prototipo público sujeto a límites; para datos privados, elegir alojamiento y autenticación apropiados. Power BI en servicio es alternativa si se resuelven licencias y acceso. |
 
-Para este observatorio, conviene mantener Streamlit como versión flexible y usar Power BI para la consulta periódica de directivos, publicándolo solo cuando se resuelva el acceso permitido (licencias y datos). En las tres pruebas medidas, Power BI respondió en menos tiempo con los mismos clics (22 s frente a 36 s), sobre todo en la consulta de modelos. Hubo un solo evaluador, que ya conocía ambas versiones, así que conviene repetir las pruebas con directivos antes de una decisión definitiva.
+Para este observatorio, conviene mantener Streamlit como versión flexible y usar Power BI para la consulta periódica de directivos, publicándolo solo cuando se resuelva el acceso permitido (licencias y datos). En las tres pruebas medidas, Power BI respondió en menos tiempo con los mismos clics (22 s frente a 36 s), sobre todo en la consulta de modelos. Además, fue el único que permitió leer el mes mínimo exacto. Hubo un solo evaluador, que ya conocía ambas versiones, así que conviene repetir las pruebas con directivos antes de una decisión definitiva.
 
 ## 11. Evidencias visuales
 
 - Capturas 01 a 03 (`docs/capturas/`): **avance** de Power BI y filtros cruzados (clic en Estados Unidos en V2, clic en 2020 en V3 con V1 a nivel de mes).
 - Capturas 10 a 13: **versión final** abierta en Power BI Desktop 2.159.1231.0 el 8 de noviembre de 2026, una por página, en su vista inicial.
 - Las figuras de `docs/img/` son bosquejos, no pruebas de funcionamiento.
-- Falta una captura de la aplicación Streamlit del Laboratorio 10 en ejecución.
+- Capturas 20 a 22: aplicación Streamlit del Laboratorio 10 durante las pruebas A, B y C (8 de noviembre de 2026).
+- El código y la documentación del Laboratorio 10 están en la carpeta `Lab10_Streamlit/` del repositorio.

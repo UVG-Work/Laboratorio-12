@@ -85,7 +85,8 @@ def capturas():
         path = DOCS / "capturas" / name
         if not path.exists(): continue
         w, h = ImageReader(str(path)).getSize()
-        out.append(KeepTogether([Image(str(path), WIDTH, WIDTH * h / w), Paragraph(caption, BODY), Spacer(1, 10)]))
+        ancho = min(WIDTH, w * 0.6)  # no estirar capturas pequeñas
+        out.append(KeepTogether([Image(str(path), ancho, ancho * h / w, hAlign="LEFT"), Paragraph(caption, BODY), Spacer(1, 10)]))
     return out
 
 

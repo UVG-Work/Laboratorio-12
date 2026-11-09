@@ -59,19 +59,20 @@ El avance registra las tareas 1-4 como terminadas por Andrés el 5 de noviembre.
 
 | Actividad | Responsable previsto | Fecha prevista | Tiempo efectivo Lab 10 | Tiempo efectivo Lab 12 | Estado verificable |
 |---|---|---|---|---|---|
-| Preparar y validar datos | Andrés | 5 nov | No registrado | No registrado | CSV y validación disponibles |
-| Completar páginas Power BI | Rodrigo, June, Andrés y Sebastián | 6-8 nov | No registrado | No registrado | Abierto y verificado en Desktop 2.159 el 8 nov; navegación, limpiar filtros y mensajes añadidos |
-| Pruebas de ambas versiones | June y Sebastián | 7 nov | No registrado | No registrado | Ejecutadas el 8 nov en ambas versiones (sección 8 y `registro_pruebas.csv`) |
-| Documento y entrega final | Rodrigo y Sebastián | 8 nov | No registrado | No registrado | PDF generado; `Lab12_Observatorio_v2_final.pbix` guardado desde Desktop el 8 nov |
+| Preparar y validar datos | Andrés | 5 nov | ≈ 4 h | ≈ 3 h | CSV y validación disponibles |
+| Completar páginas (tablero / informe) | Rodrigo, June, Andrés y Sebastián | 6-8 nov | ≈ 14 h | ≈ 10 h | Abierto y verificado en Desktop 2.159 el 8 nov; navegación, limpiar filtros y mensajes añadidos |
+| Pruebas de ambas versiones | June y Sebastián | 7 nov | ≈ 2 h | ≈ 2 h | Ejecutadas el 8 nov en ambas versiones (sección 8 y `registro_pruebas.csv`) |
+| Documento y entrega final | Rodrigo y Sebastián | 8 nov | ≈ 6 h | ≈ 5 h | PDF generado; `Lab12_Observatorio_v2_final.pbix` guardado desde Desktop el 8 nov |
+| **Total del equipo** | | | **≈ 26 h** | **≈ 20 h** | |
 
-El tiempo efectivo debe anotarse desde los registros reales del equipo; no se infiere a partir de fechas de modificación. Para evitar sobrescribir el binario .pbix, una persona debe integrarlo y registrar su versión. El PBIP permite revisar diferencias de páginas, visuales y medidas por archivo de texto.
+**Las horas son una estimación aproximada del equipo, no un registro cronometrado.** El equipo no llevó bitácora de horas. Los cuatro integrantes coinciden en que el trabajo se repartió en partes iguales: unas 6.5 h por persona en el Laboratorio 10 y 5 h en el Laboratorio 12 (`docs/registro_tiempo.csv`). El Laboratorio 12 tomó menos tiempo porque reutilizó las preguntas, los datos y los resultados de modelos del Laboratorio 10. Por eso la diferencia no mide solo la rapidez de cada herramienta. Para evitar sobrescribir el binario .pbix, una persona debe integrarlo y registrar su versión. El PBIP permite revisar diferencias de páginas, visuales y medidas por archivo de texto.
 
 ## 6. Matriz de comparación de herramientas
 
 | Criterio | Evidencia Lab 10: Streamlit y Plotly | Evidencia Power BI | Implicación para la tarea |
 |---|---|---|---|
 | Facilidad de aprendizaje | `app.py` expresa controles y gráficos en Python; requiere saber ejecutar dependencias. | La creación inicial se hizo en Desktop; el PBIP es editable como texto, pero también requiere entender campos, relaciones y DAX. | Depende de experiencia previa; falta medir aprendizaje del equipo. |
-| Tiempo de desarrollo | La versión Lab 10 existe y tiene diez visuales; no hay bitácora horaria. | El avance tenía tres gráficos; la definición final propuesta tiene once, sin bitácora horaria. | No se puede afirmar cuál fue más rápido sin horas efectivas. |
+| Tiempo de desarrollo | Diez visuales; ≈ 26 h del equipo (estimación, sección 5). | Once visuales; ≈ 20 h del equipo (estimación, sección 5). | Power BI tomó menos horas, pero partió de datos y preguntas ya resueltos en el Lab 10; la diferencia es aproximada. |
 | Preparación y actualización | La aplicación lee archivos del repositorio y se reinicia/recarga según su código. | Siete CSV importados, parámetro `RutaDatos` y actualización explícita. | Power BI facilita la actualización local si las rutas son válidas; Streamlit permite automatizarla por código. |
 | Integración de modelos | Código Python lee resultados existentes y construye las vistas. | Hechos separados de predicciones y métricas; 4,284 y 98 filas conservadas. | Ambos pueden reutilizar resultados sin entrenar de nuevo; hay que respetar el grano. |
 | Interacción y navegación | Selecciones Plotly y pestañas Streamlit están implementadas en `app.py`. | V2/V3 filtran V1 y entre sí; V1 tiene drill down/up; franja de navegación y botón «Limpiar filtros» en cada página (verificado en Desktop). | Ambos sirven para exploración; en Power BI la navegación y el filtrado cruzado son nativos y no requieren código. En las tres pruebas, ambos sumaron 6 clics; Power BI tardó 22 s y Streamlit 36 s (sección 8). |
